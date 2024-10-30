@@ -53,11 +53,11 @@
                     <button>Чизкейки <span class="arrow">➔</span></button>
                 </div>
                 <div class="product">
-                    <img :src="dessertPhotos[1]" alt="Чизкейки" />
-                    <button>Полуниця в шоколаді <span class="arrow">➔</span></button>
+                    <img :src="dessertPhotos[4]" alt="Чизкейки" />
+                    <button>Еклери <span class="arrow">➔</span></button>
                 </div>
                 <div class="product">
-                    <img :src="dessertPhotos[2]" alt="Торти" />
+                    <img :src="dessertPhotos[1]" alt="Торти" />
                     <button>Макаронс <span class="arrow">➔</span></button>
                 </div>
                 <div class="product">
@@ -71,16 +71,121 @@
     </div>
 
     <div>
-        <!-- Новий прямокутник -->
-        <div class="colored-rectangle"></div>
-        <!-- Заголовок для відгуків -->
-        <h2 class="section-title">Ваші враження та солодкі історії</h2>
-        <!-- Контейнер для прямокутників -->
-        <div class="review-container">
-            <ReviewComponent />
-            <ReviewComponent />
-            <ReviewComponent />
+        <!-- Фіолетовий контейнер для відгуків -->
+        <div class="purple-container">
+            <h2 class="section-title review-title">Ваші враження та солодкі історії</h2>
+
+            <div class="review-container">
+                <CustomRectangle
+                    :clientPhoto="require('@/assets/women1.jpg')"
+                    feedbackText="Замовляла торт на день народження, і він перевершив усі мої очікування. Смак чудовий, а оформлення просто витончене. Гості були в захваті, і запитували, де я його придбала. Дуже вдячна за якість та оперативність!"
+                />
+                <CustomRectangle
+                    :clientPhoto="require('@/assets/women2.jpg')"
+                    feedbackText="Нещодавно замовляла еклери та макаруни, і це був справжній кулінарний шедевр! Кожен шматочок танув у роті, а оформлення було на найвищому рівні. Окреме дякую за швидку доставку та приємний сервіс."
+                />
+                <CustomRectangle
+                    :clientPhoto="require('@/assets/women3.jpg')"
+                    feedbackText="Десерт вийшов не тільки смачним, а й дуже гарним. Видно, що все робиться з любов’ю до деталей. Дякую за увагу до побажань і високий рівень сервісу!"
+                />
+            </div>
         </div>
+
+        <div class="favorites-container" @click="goToDesserts">
+            <h2 class="favorites-title">Топ-5 ваших фаворитів</h2>
+            <div class="favorites-grid">
+                <div class="favorite-item" v-for="(url, index) in favoritePhotos" :key="index">
+                    <img :src="url" :alt="'Десерт ' + (index + 1)" class="favorite-photo" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Рецепти -->
+        <div class="recipe-container">
+            <h2 class="recipe-title">Книга рецептів від засновниці</h2>
+            <div class="recipe-grid">
+                <div class="recipe-item">
+                    <a href="https://foodie-app-foodie.vercel.app/recipes/Chizkeyk-oreo--1684062324523" target="_blank">
+                        <img src="../assets/recipe1.jpg" alt="Рецепт 1" class="recipe-photo" />
+                    </a>
+                    <div class="recipe-info">
+                        <div class="recipe-icons">
+                            <span class="time-icon">
+                                <img src="../assets/clock.png" alt="Час приготування" class="icon" /> 60 хв
+                            </span>
+                            <span class="ingredients-icon">
+                                <img src="../assets/agenda.png" alt="Кількість інгредієнтів" class="icon" /> 6
+                                інгредієнтів
+                            </span>
+                        </div>
+                        <h3 class="recipe-name">Холодний чизкейк "Орео"</h3>
+                    </div>
+                </div>
+                <div class="recipe-item">
+                    <a
+                        href="https://foodie-app-foodie.vercel.app/recipes/Sloyki-z-vanilnim-kremom-ta-yagodami--1722597699162"
+                        target="_blank"
+                    >
+                        <img src="../assets/recipe2.jpg" alt="Рецепт 2" class="recipe-photo" />
+                    </a>
+                    <div class="recipe-info">
+                        <div class="recipe-icons">
+                            <span class="time-icon">
+                                <img src="../assets/clock.png" alt="Час приготування" class="icon" /> 60 хв
+                            </span>
+                            <span class="ingredients-icon">
+                                <img src="../assets/agenda.png" alt="Кількість інгредієнтів" class="icon" /> 6
+                                інгредієнтів
+                            </span>
+                        </div>
+                        <h3 class="recipe-name">Слойки з ванільним кремом та ягодами</h3>
+                    </div>
+                </div>
+                <div class="recipe-item">
+                    <a
+                        href="https://foodie-app-foodie.vercel.app/recipes/Bulochki-Sinnabon-1673206433425"
+                        target="_blank"
+                    >
+                        <img src="../assets/recipe3.jpg" alt="Рецепт 3" class="recipe-photo" />
+                    </a>
+                    <div class="recipe-info">
+                        <div class="recipe-icons">
+                            <span class="time-icon">
+                                <img src="../assets/clock.png" alt="Час приготування" class="icon" /> 60 хв
+                            </span>
+                            <span class="ingredients-icon">
+                                <img src="../assets/agenda.png" alt="Кількість інгредієнтів" class="icon" /> 6
+                                інгредієнтів
+                            </span>
+                        </div>
+                        <h3 class="recipe-name">Булочки сінабон: простий рецепт приготування</h3>
+                    </div>
+                </div>
+                <div class="recipe-item">
+                    <a
+                        href="https://foodie-app-foodie.vercel.app/recipes/Yagodniy-chizkeyk-1723742154845"
+                        target="_blank"
+                    >
+                        <img src="../assets/recipe4.jpg" alt="Рецепт 4" class="recipe-photo" />
+                    </a>
+                    <div class="recipe-info">
+                        <div class="recipe-icons">
+                            <span class="time-icon">
+                                <img src="../assets/clock.png" alt="Час приготування" class="icon" /> 60 хв
+                            </span>
+                            <span class="ingredients-icon">
+                                <img src="../assets/agenda.png" alt="Кількість інгредієнтів" class="icon" /> 6
+                                інгредієнтів
+                            </span>
+                        </div>
+                        <h3 class="recipe-name">Полуничний чизкейк</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Додаємо футер компонент -->
+        <FooterComponent />
     </div>
 </template>
 
@@ -88,22 +193,41 @@
 import AppHeader from '../components/AppHeader.vue'
 import MainButton from '../components/MainButton.vue'
 import { mapGetters } from 'vuex'
-import ReviewComponent from '../components/ReviewComponent.vue'
+import CustomRectangle from '../components/CustomRectangle.vue'
+import FooterComponent from '../components/FooterComponent.vue'
 
 export default {
     name: 'MainPage',
     components: {
         AppHeader,
         MainButton,
-        ReviewComponent,
+        CustomRectangle,
+        FooterComponent,
     },
     computed: {
         ...mapGetters(['getDesserts']),
         dessertPhotos() {
             const desserts = this.getDesserts
-            return [desserts[0].url, desserts[14].url, desserts[1].url, desserts[3].url]
+            return [
+                desserts[0].url, // Перше зображення (наприклад, для Чизкейків)
+                desserts[1].url, // Друге зображення (наприклад, для Полуниць в шоколаді)
+                desserts[2].url, // Третє зображення (наприклад, для Макаронів)
+                desserts[3].url, // Четверте зображення (наприклад, для Мусових тістечок)
+                desserts[4].url, // П'яте зображення (можливо, ще один десерт)
+            ]
+        },
+        favoritePhotos() {
+            const desserts = this.getDesserts
+            return [
+                desserts[12].url, // Шостий десерт
+                desserts[7].url, // Сьомий десерт
+                desserts[9].url, // Восьмий десерт
+                desserts[11].url, // Дев'ятий десерт
+                desserts[10].url, // Десятий десерт
+            ]
         },
     },
+
     methods: {
         goToDesserts() {
             this.$router.push({ name: 'desserts' })
@@ -221,28 +345,151 @@ button .arrow {
     width: 320px;
 }
 
-/* Стилі для контейнера відгуків */
+.purple-container {
+    box-sizing: border-box; /* Includes padding and border in the total width and height */
+    width: 100%; /* Width of the container */
+    height: 290px; /* Fixed height */
+    background-color: rgba(82, 20, 72, 0.15); /* Purple background */
+    margin-top: 90px; /* Increased top margin */
+    color: white; /* Text color */
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Vertical alignment */
+    align-items: center; /* Center content horizontally */
+    padding: 0 20px; /* Left and right padding, no top padding */
+}
 
-/* Контейнер для відгуків */
 .review-container {
-    display: flex; /* Використовуємо flexbox для розташування в ряд */
-    justify-content: space-around; /* Вирівнює елементи з відступами між ними */
+    display: flex;
+    flex-wrap: wrap; /* Дозволяємо переноси елементів */
+    justify-content: center; /* Центруємо, щоб зменшити простір */
+    gap: 10px; /* Встановлюємо простір між блоками відгуків */
+    margin-top: 40px; /* Відступ зверху, щоб розділити заголовок і блоки */
+}
+
+.review-title {
+    margin: 0; /* Видаляємо зайві відступи */
+    font-family: 'Alegreya Sans SC'; /* Шрифт заголовка */
+    font-size: 35px; /* Розмір шрифту заголовка */
+    text-align: left; /* Вирівнювання тексту по лівому краю */
+    color: rgba(47, 0, 45, 0.85); /* Колір заголовка */
+    padding-top: 40px; /* Відступ зверху */
+    padding-left: 10px; /* Відступ зліва */
+    align-self: flex-start; /* Вирівнювання заголовка по лівому краю контейнера */
+}
+
+.review-container > div {
+    margin: 0 5px; /* Зменшуємо зовнішній відступ між блоками */
 }
 
 .review-container > :first-child {
-    margin-left: 100px; /* Лівий блок без зсуву */
+    margin-left: 0; /* Лівий блок без зсуву */
 }
 
-/* Зсув правого блоку */
 .review-container > :last-child {
-    margin-right: 100px; /* Правий блок без зсуву */
+    margin-right: 0; /* Правий блок без зсуву */
 }
 
-.colored-rectangle {
-    width: 100%; /* Ширина прямокутника */
-    height: 290px; /* Висота прямокутника */
-    background-color: rgba(82, 20, 72, 0.15); /* Колір з насиченістю 15% */
-    margin-top: 40px; /* Відступ зверху від попередніх блоків */
-    z-index: 1;
+.favorites-container {
+    background-color: rgba(82, 20, 72, 0.15);
+    width: 100%;
+    height: 490px;
+    margin: 20px auto;
+    margin-top: 400px;
+    padding-top: 10px; /* Додаємо верхній внутрішній відступ */
+}
+
+.favorites-title {
+    font-family: 'Alegreya Sans SC';
+    font-size: 35px;
+    color: #521448;
+    text-align: left; /* Вирівнюємо заголовок зліва */
+    padding-left: 25px;
+}
+
+.favorites-grid {
+    display: flex;
+    justify-content: flex-start; /* Вирівнюємо елементи на початку */
+    flex-wrap: wrap;
+    gap: 10px; /* Додаємо відступ між елементами */
+}
+
+.favorite-item {
+    width: 240px;
+    height: 340px;
+    margin: 0 25px 15px; /* Встановлюємо однакові відступи зліва і справа по 30px, 15px знизу */
+}
+
+.favorite-photo {
+    width: 100%; /* Змінюємо ширину на 100%, щоб фото заповнювало контейнер */
+    height: 100%; /* Змінюємо висоту на 100% */
+    object-fit: cover;
+    margin-bottom: 10px; /* Додаємо відступ знизу між фото */
+}
+
+.recipe-container {
+    width: 100%;
+}
+
+.recipe-title {
+    font-family: 'Alegreya Sans SC';
+    font-size: 35px;
+    color: #521448;
+    text-align: left;
+    margin-bottom: 30px;
+    padding-left: 30px;
+}
+
+.recipe-grid {
+    display: flex;
+    justify-content: flex-start; /* Вирівнюємо елементи до початку */
+    flex-wrap: wrap;
+    gap: 25px; /* Встановлюємо рівномірний відступ між фото */
+    padding: 0 30px; /* Встановлюємо рівномірний відступ зліва і справа */
+}
+
+.recipe-item {
+    width: 340px;
+    height: 420px;
+}
+
+.recipe-photo {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+}
+
+.recipe-info {
+    margin-top: 10px;
+}
+
+.recipe-icons {
+    display: flex;
+    justify-content: flex-start; /* Вирівнювання елементів на початку */
+    margin-left: 50px;
+    gap: 50px; /* Встановлює відступ між іконками */
+    margin-bottom: 5px;
+}
+
+.time-icon,
+.ingredients-icon {
+    display: flex;
+    align-items: center;
+    font-size: 14px; /* Зменшений розмір тексту */
+    margin-right: 10px;
+}
+
+.icon {
+    width: 30px; /* Розмір кожної іконки */
+    height: 30px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.recipe-name {
+    font-size: 18px;
+    font-family: 'Alegreya Sans SC';
+    font-weight: 300; /* Тонший текст */
+    letter-spacing: 1px; /* Відступи між літерами трохи більші */
+    color: #2f002d;
 }
 </style>

@@ -17,18 +17,18 @@
 </template>
 
 <script>
-import ButtonForCatalog from '@/components/ButtonForCatalog.vue' // імпорт компонента кнопки
-import { mapGetters } from 'vuex' // імпорт mapGetters для доступу до геттерів
+import ButtonForCatalog from '@/components/ButtonForCatalog.vue'
+import { mapGetters } from 'vuex'
 
 export default {
     name: 'DessertsPage',
     components: {
-        ButtonForCatalog, // реєстрація компонента
+        ButtonForCatalog,
     },
     computed: {
-        ...mapGetters(['getDesserts']), // підключення геттера getDesserts
+        ...mapGetters(['getDesserts']),
         desserts() {
-            return this.getDesserts // доступ до десертів з Vuex
+            return this.getDesserts
         },
     },
 }
