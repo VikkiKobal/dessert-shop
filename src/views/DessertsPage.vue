@@ -1,14 +1,14 @@
 <template>
     <div class="desserts-page">
         <div class="button-container">
-            <button-for-catalog label="Полуниця в шоколаді" />
-            <button-for-catalog label="Чизкейки" />
-            <button-for-catalog label="Торти" />
-            <button-for-catalog label="Еклери" />
+            <button-for-catalog label="Фрукти в шоколаді" @click="filterDesserts('фрукти в шоколаді')" />
+            <button-for-catalog label="Чизкейки" @click="filterDesserts('чизкейки')" />
+            <button-for-catalog label="Торти" @click="filterDesserts('торти')" />
+            <button-for-catalog label="Еклери" @click="filterDesserts('еклери')" />
         </div>
         <div class="dessert-images-container">
             <div class="dessert-images">
-                <div v-for="dessert in desserts" :key="dessert.id" class="dessert-item">
+                <div v-for="dessert in filteredDesserts" :key="dessert.id" class="dessert-item">
                     <img :src="dessert.url" :alt="'Dessert ' + dessert.id" />
                 </div>
             </div>
@@ -25,10 +25,29 @@ export default {
     components: {
         ButtonForCatalog,
     },
+    data() {
+        return {
+            selectedCategory: null, // Track the selected category
+        }
+    },
     computed: {
         ...mapGetters(['getDesserts']),
-        desserts() {
-            return this.getDesserts
+        filteredDesserts() {
+            // Return all desserts if no category is selected, otherwise filter by category
+            if (!this.selectedCategory) {
+                return this.getDesserts
+            }
+            return this.getDesserts.filter((dessert) => dessert.category === this.selectedCategory)
+        },
+    },
+    methods: {
+        filterDesserts(category) {
+            // If the same category is clicked, reset to show all desserts
+            if (this.selectedCategory === category) {
+                this.selectedCategory = null // Reset selection
+            } else {
+                this.selectedCategory = category // Set the selected category
+            }
         },
     },
 }

@@ -49,23 +49,24 @@
             <h2 class="section-title">Наш асортимент</h2>
             <div class="products">
                 <div class="product">
-                    <img :src="dessertPhotos[0]" alt="Полуниця в шоколаді" />
+                    <img :src="dessertPhotos[0]" alt="Чизкейки" />
                     <button>Чизкейки <span class="arrow">➔</span></button>
                 </div>
                 <div class="product">
-                    <img :src="dessertPhotos[4]" alt="Чизкейки" />
+                    <img :src="dessertPhotos[1]" alt="Еклери" />
                     <button>Еклери <span class="arrow">➔</span></button>
                 </div>
                 <div class="product">
-                    <img :src="dessertPhotos[1]" alt="Торти" />
+                    <img :src="dessertPhotos[2]" alt="Макаронс" />
                     <button>Макаронс <span class="arrow">➔</span></button>
                 </div>
                 <div class="product">
-                    <img :src="dessertPhotos[3]" alt="Еклери" />
-                    <button>Мусові тістечка <span class="arrow">➔</span></button>
+                    <img :src="dessertPhotos[3]" alt="Фрукти в шоколаді" />
+                    <button>Фрукти в шоколаді <span class="arrow">➔</span></button>
                 </div>
             </div>
         </div>
+
         <!-- Кнопка замовлення після асортименту -->
         <MainButton buttonText="Переглянути весь асортимент" :onClick="goToDesserts" class="view-catalog-button" />
     </div>
@@ -183,8 +184,7 @@
                 </div>
             </div>
         </div>
-
-        <!-- Додаємо футер компонент -->
+        <!-- Футер компонент -->
         <FooterComponent />
     </div>
 </template>
@@ -209,22 +209,15 @@ export default {
         dessertPhotos() {
             const desserts = this.getDesserts
             return [
-                desserts[0].url, // Перше зображення (наприклад, для Чизкейків)
-                desserts[1].url, // Друге зображення (наприклад, для Полуниць в шоколаді)
-                desserts[2].url, // Третє зображення (наприклад, для Макаронів)
-                desserts[3].url, // Четверте зображення (наприклад, для Мусових тістечок)
-                desserts[4].url, // П'яте зображення (можливо, ще один десерт)
+                desserts.find((d) => d.id === 4).url,
+                desserts.find((d) => d.id === 11).url,
+                desserts.find((d) => d.id === 15).url,
+                desserts.find((d) => d.id === 7).url,
             ]
         },
         favoritePhotos() {
             const desserts = this.getDesserts
-            return [
-                desserts[12].url, // Шостий десерт
-                desserts[7].url, // Сьомий десерт
-                desserts[9].url, // Восьмий десерт
-                desserts[11].url, // Дев'ятий десерт
-                desserts[10].url, // Десятий десерт
-            ]
+            return [desserts[12].url, desserts[7].url, desserts[9].url, desserts[11].url, desserts[10].url]
         },
     },
 
@@ -235,7 +228,6 @@ export default {
     },
 }
 </script>
-
 <style scoped>
 .banner {
     display: flex;
@@ -288,8 +280,10 @@ h1 {
 
 .features li img {
     margin-right: 25px;
-    width: 70px; /* Встановлення ширини іконки */
-    height: 75px; /* Встановлення висоти іконки */
+    width: 70px;
+    /* Встановлення ширини іконки */
+    height: 75px;
+    /* Встановлення висоти іконки */
 }
 
 .features li p {
@@ -324,7 +318,8 @@ h1 {
     width: 325px;
     height: 45px;
     background-color: #dde2d0;
-    border: 1px solid rgba(75, 35, 72, 0.3); /* Колір бордера з прозорістю 0.3 */
+    border: 1px solid rgba(75, 35, 72, 0.3);
+    /* Колір бордера з прозорістю 0.3 */
     font-family: 'Alegreya Sans SC';
     font-size: 20px;
     color: #4b2348;
@@ -332,7 +327,8 @@ h1 {
 }
 
 button .arrow {
-    margin-left: 20px; /* Відступ між текстом і стрілкою */
+    margin-left: 20px;
+    /* Відступ між текстом і стрілкою */
 }
 
 .product img {
@@ -346,47 +342,72 @@ button .arrow {
 }
 
 .purple-container {
-    box-sizing: border-box; /* Includes padding and border in the total width and height */
-    width: 100%; /* Width of the container */
-    height: 290px; /* Fixed height */
-    background-color: rgba(82, 20, 72, 0.15); /* Purple background */
-    margin-top: 90px; /* Increased top margin */
-    color: white; /* Text color */
-    display: flex; /* Use flexbox for alignment */
-    flex-direction: column; /* Vertical alignment */
-    align-items: center; /* Center content horizontally */
-    padding: 0 20px; /* Left and right padding, no top padding */
+    box-sizing: border-box;
+    /* Includes padding and border in the total width and height */
+    width: 100%;
+    /* Width of the container */
+    height: 290px;
+    /* Fixed height */
+    background-color: rgba(82, 20, 72, 0.15);
+    /* Purple background */
+    margin-top: 90px;
+    /* Increased top margin */
+    color: white;
+    /* Text color */
+    display: flex;
+    /* Use flexbox for alignment */
+    flex-direction: column;
+    /* Vertical alignment */
+    align-items: center;
+    /* Center content horizontally */
+    padding: 0 20px;
+    /* Left and right padding, no top padding */
 }
 
 .review-container {
     display: flex;
-    flex-wrap: wrap; /* Дозволяємо переноси елементів */
-    justify-content: center; /* Центруємо, щоб зменшити простір */
-    gap: 10px; /* Встановлюємо простір між блоками відгуків */
-    margin-top: 40px; /* Відступ зверху, щоб розділити заголовок і блоки */
+    flex-wrap: wrap;
+    /* Дозволяємо переноси елементів */
+    justify-content: center;
+    /* Центруємо, щоб зменшити простір */
+    gap: 10px;
+    /* Встановлюємо простір між блоками відгуків */
+    margin-top: 40px;
+    /* Відступ зверху, щоб розділити заголовок і блоки */
 }
 
 .review-title {
-    margin: 0; /* Видаляємо зайві відступи */
-    font-family: 'Alegreya Sans SC'; /* Шрифт заголовка */
-    font-size: 35px; /* Розмір шрифту заголовка */
-    text-align: left; /* Вирівнювання тексту по лівому краю */
-    color: rgba(47, 0, 45, 0.85); /* Колір заголовка */
-    padding-top: 40px; /* Відступ зверху */
-    padding-left: 10px; /* Відступ зліва */
-    align-self: flex-start; /* Вирівнювання заголовка по лівому краю контейнера */
+    margin: 0;
+    /* Видаляємо зайві відступи */
+    font-family: 'Alegreya Sans SC';
+    /* Шрифт заголовка */
+    font-size: 35px;
+    /* Розмір шрифту заголовка */
+    text-align: left;
+    /* Вирівнювання тексту по лівому краю */
+    color: rgba(47, 0, 45, 0.85);
+    /* Колір заголовка */
+    padding-top: 40px;
+    /* Відступ зверху */
+    padding-left: 10px;
+    /* Відступ зліва */
+    align-self: flex-start;
+    /* Вирівнювання заголовка по лівому краю контейнера */
 }
 
 .review-container > div {
-    margin: 0 5px; /* Зменшуємо зовнішній відступ між блоками */
+    margin: 0 5px;
+    /* Зменшуємо зовнішній відступ між блоками */
 }
 
 .review-container > :first-child {
-    margin-left: 0; /* Лівий блок без зсуву */
+    margin-left: 0;
+    /* Лівий блок без зсуву */
 }
 
 .review-container > :last-child {
-    margin-right: 0; /* Правий блок без зсуву */
+    margin-right: 0;
+    /* Правий блок без зсуву */
 }
 
 .favorites-container {
@@ -395,35 +416,43 @@ button .arrow {
     height: 490px;
     margin: 20px auto;
     margin-top: 400px;
-    padding-top: 10px; /* Додаємо верхній внутрішній відступ */
+    padding-top: 10px;
+    /* Додаємо верхній внутрішній відступ */
 }
 
 .favorites-title {
     font-family: 'Alegreya Sans SC';
     font-size: 35px;
     color: #521448;
-    text-align: left; /* Вирівнюємо заголовок зліва */
+    text-align: left;
+    /* Вирівнюємо заголовок зліва */
     padding-left: 25px;
 }
 
 .favorites-grid {
     display: flex;
-    justify-content: flex-start; /* Вирівнюємо елементи на початку */
+    justify-content: flex-start;
+    /* Вирівнюємо елементи на початку */
     flex-wrap: wrap;
-    gap: 10px; /* Додаємо відступ між елементами */
+    gap: 10px;
+    /* Додаємо відступ між елементами */
 }
 
 .favorite-item {
     width: 240px;
     height: 340px;
-    margin: 0 25px 15px; /* Встановлюємо однакові відступи зліва і справа по 30px, 15px знизу */
+    margin: 0 25px 15px;
+    /* Встановлюємо однакові відступи зліва і справа по 30px, 15px знизу */
 }
 
 .favorite-photo {
-    width: 100%; /* Змінюємо ширину на 100%, щоб фото заповнювало контейнер */
-    height: 100%; /* Змінюємо висоту на 100% */
+    width: 100%;
+    /* Змінюємо ширину на 100%, щоб фото заповнювало контейнер */
+    height: 100%;
+    /* Змінюємо висоту на 100% */
     object-fit: cover;
-    margin-bottom: 10px; /* Додаємо відступ знизу між фото */
+    margin-bottom: 10px;
+    /* Додаємо відступ знизу між фото */
 }
 
 .recipe-container {
@@ -441,10 +470,13 @@ button .arrow {
 
 .recipe-grid {
     display: flex;
-    justify-content: flex-start; /* Вирівнюємо елементи до початку */
+    justify-content: flex-start;
+    /* Вирівнюємо елементи до початку */
     flex-wrap: wrap;
-    gap: 25px; /* Встановлюємо рівномірний відступ між фото */
-    padding: 0 30px; /* Встановлюємо рівномірний відступ зліва і справа */
+    gap: 25px;
+    /* Встановлюємо рівномірний відступ між фото */
+    padding: 0 30px;
+    /* Встановлюємо рівномірний відступ зліва і справа */
 }
 
 .recipe-item {
@@ -464,9 +496,11 @@ button .arrow {
 
 .recipe-icons {
     display: flex;
-    justify-content: flex-start; /* Вирівнювання елементів на початку */
+    justify-content: flex-start;
+    /* Вирівнювання елементів на початку */
     margin-left: 50px;
-    gap: 50px; /* Встановлює відступ між іконками */
+    gap: 50px;
+    /* Встановлює відступ між іконками */
     margin-bottom: 5px;
 }
 
@@ -474,12 +508,14 @@ button .arrow {
 .ingredients-icon {
     display: flex;
     align-items: center;
-    font-size: 14px; /* Зменшений розмір тексту */
+    font-size: 14px;
+    /* Зменшений розмір тексту */
     margin-right: 10px;
 }
 
 .icon {
-    width: 30px; /* Розмір кожної іконки */
+    width: 30px;
+    /* Розмір кожної іконки */
     height: 30px;
     margin-right: 5px;
     vertical-align: middle;
@@ -488,8 +524,10 @@ button .arrow {
 .recipe-name {
     font-size: 18px;
     font-family: 'Alegreya Sans SC';
-    font-weight: 300; /* Тонший текст */
-    letter-spacing: 1px; /* Відступи між літерами трохи більші */
+    font-weight: 300;
+    /* Тонший текст */
+    letter-spacing: 1px;
+    /* Відступи між літерами трохи більші */
     color: #2f002d;
 }
 </style>
