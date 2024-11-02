@@ -128,7 +128,7 @@ form input {
     color: white;
     border: none;
     font-family: 'Alegreya Sans SC';
-    font-size: 15px;
+    font-size: 17px;
     width: 120px;
     cursor: pointer;
 }

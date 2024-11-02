@@ -9,7 +9,7 @@
         <div class="dessert-images-container">
             <div class="dessert-images">
                 <div v-for="dessert in paginatedDesserts" :key="dessert.id" class="dessert-item">
-                    <img :src="dessert.url" :alt="'Dessert ' + dessert.id" />
+                    <img :src="dessert.url" :alt="'Dessert ' + dessert.id" @click="navigateToDessertInfo(dessert.id)" />
                     <order-button :label="'Замовити'" @click="orderDessert(dessert.id)" />
                     <p class="dessert-price">{{ dessert.price }} UAH</p>
                 </div>
@@ -18,7 +18,6 @@
         <v-pagination v-model="currentPage" :length="totalPages" :total-visible="7" @input="changePage" class="my-5" />
     </div>
 </template>
-
 
 <script>
 import { VPagination } from 'vuetify/components'
@@ -46,30 +45,24 @@ export default {
             const desserts = !this.selectedCategory
                 ? this.getDesserts
                 : this.getDesserts.filter((dessert) => dessert.category.includes(this.selectedCategory))
-
-            console.log('Filtered Desserts:', desserts.length) // Додайте цей лог
             return desserts
         },
-
         paginatedDesserts() {
             const start = (this.currentPage - 1) * this.dessertsPerPage
-            console.log('Paginated Desserts:', this.filteredDesserts.slice(start, start + this.dessertsPerPage)) // Додайте лог
             return this.filteredDesserts.slice(start, start + this.dessertsPerPage)
         },
         totalPages() {
             const total = Math.ceil(this.filteredDesserts.length / this.dessertsPerPage)
-            console.log('Total Pages:', total) // Лог для перевірки
             return total
         },
     },
-
     methods: {
         filterDesserts(category) {
             if (this.selectedCategory === category) {
                 this.selectedCategory = null
             } else {
                 this.selectedCategory = category
-                this.currentPage = 1 // Скидаємо на першу сторінку при фільтрації
+                this.currentPage = 1
             }
         },
         orderDessert(dessertId) {
@@ -78,9 +71,13 @@ export default {
         changePage(page) {
             this.currentPage = page
         },
+        navigateToDessertInfo(dessertId) {
+            this.$router.push({ name: 'DessertInfoView', params: { id: dessertId } })
+        },
     },
 }
 </script>
+
 
 <style>
 body {

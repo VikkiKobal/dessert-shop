@@ -56,8 +56,9 @@ const store = createStore({
             return state.desserts;
         },
         getDessertById: (state) => (id) => {
-            return state.desserts.find(dessert => dessert.id === id);
+            return state.desserts.find(dessert => dessert.id === Number(id));
         }
+
     }
 
 
