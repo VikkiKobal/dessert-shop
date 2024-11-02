@@ -54,7 +54,7 @@
                 </div>
                 <div class="product">
                     <img :src="dessertPhotos[1]" alt="Еклери" />
-                    <button>Еклери <span class="arrow">➔</span></button>
+                    <button>Торти <span class="arrow">➔</span></button>
                 </div>
                 <div class="product">
                     <img :src="dessertPhotos[2]" alt="Макаронс" />
@@ -210,7 +210,7 @@ export default {
             const desserts = this.getDesserts
             return [
                 desserts.find((d) => d.id === 4).url,
-                desserts.find((d) => d.id === 11).url,
+                desserts.find((d) => d.id === 10).url,
                 desserts.find((d) => d.id === 15).url,
                 desserts.find((d) => d.id === 7).url,
             ]

@@ -4,7 +4,7 @@
             <button-for-catalog label="Фрукти в шоколаді" @click="filterDesserts('фрукти в шоколаді')" />
             <button-for-catalog label="Чизкейки" @click="filterDesserts('чизкейки')" />
             <button-for-catalog label="Торти" @click="filterDesserts('торти')" />
-            <button-for-catalog label="Еклери" @click="filterDesserts('еклери')" />
+            <button-for-catalog label="Макаронс" @click="filterDesserts('макаронс')" />
         </div>
         <div class="dessert-images-container">
             <div class="dessert-images">
@@ -20,7 +20,7 @@
 
 <script>
 import ButtonForCatalog from '@/components/ButtonForCatalog.vue'
-import OrderButton from '@/components/OrderButton.vue' // Імпорт кнопки "Замовити"
+import OrderButton from '@/components/OrderButton.vue'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -40,7 +40,7 @@ export default {
             if (!this.selectedCategory) {
                 return this.getDesserts
             }
-            return this.getDesserts.filter((dessert) => dessert.category === this.selectedCategory)
+            return this.getDesserts.filter((dessert) => dessert.category.includes(this.selectedCategory))
         },
     },
     methods: {
