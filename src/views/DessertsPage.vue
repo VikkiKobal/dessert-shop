@@ -8,12 +8,17 @@
         </div>
         <div class="dessert-images-container">
             <div class="dessert-images">
-                <div v-for="dessert in filteredDesserts" :key="dessert.id" class="dessert-item">
+                <div v-for="dessert in paginatedDesserts" :key="dessert.id" class="dessert-item">
                     <img :src="dessert.url" :alt="'Dessert ' + dessert.id" />
                     <order-button :label="'Замовити'" @click="orderDessert(dessert.id)" />
                     <p class="dessert-price">{{ dessert.price }} UAH</p>
                 </div>
             </div>
+        </div>
+        <div class="pagination">
+            <button @click="previousPage" :disabled="currentPage === 1">Попередня</button>
+            <span>Сторінка {{ currentPage }} з {{ totalPages }}</span>
+            <button @click="nextPage" :disabled="currentPage === totalPages">Наступна</button>
         </div>
     </div>
 </template>
@@ -27,11 +32,13 @@ export default {
     name: 'DessertsPage',
     components: {
         ButtonForCatalog,
-        OrderButton, // Додаємо компонент для кнопки замовлення
+        OrderButton,
     },
     data() {
         return {
             selectedCategory: null,
+            currentPage: 1,
+            dessertsPerPage: 15,
         }
     },
     computed: {
@@ -42,6 +49,13 @@ export default {
             }
             return this.getDesserts.filter((dessert) => dessert.category.includes(this.selectedCategory))
         },
+        paginatedDesserts() {
+            const start = (this.currentPage - 1) * this.dessertsPerPage
+            return this.filteredDesserts.slice(start, start + this.dessertsPerPage)
+        },
+        totalPages() {
+            return Math.ceil(this.filteredDesserts.length / this.dessertsPerPage)
+        },
     },
     methods: {
         filterDesserts(category) {
@@ -49,11 +63,21 @@ export default {
                 this.selectedCategory = null
             } else {
                 this.selectedCategory = category
+                this.currentPage = 1 // Скидаємо на першу сторінку при фільтрації
             }
         },
         orderDessert(dessertId) {
-            // Логіка замовлення десерту
             console.log(`Замовлено десерт з ID: ${dessertId}`)
+        },
+        previousPage() {
+            if (this.currentPage > 1) {
+                this.currentPage--
+            }
+        },
+        nextPage() {
+            if (this.currentPage < this.totalPages) {
+                this.currentPage++
+            }
         },
     },
 }
@@ -101,5 +125,11 @@ body {
 img {
     width: 215px;
     height: 285px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
 </style>
