@@ -15,15 +15,13 @@
                 </div>
             </div>
         </div>
-        <div class="pagination">
-            <button @click="previousPage" :disabled="currentPage === 1">Попередня</button>
-            <span>Сторінка {{ currentPage }} з {{ totalPages }}</span>
-            <button @click="nextPage" :disabled="currentPage === totalPages">Наступна</button>
-        </div>
+        <v-pagination v-model="currentPage" :length="totalPages" :total-visible="7" @input="changePage" class="my-5" />
     </div>
 </template>
 
+
 <script>
+import { VPagination } from 'vuetify/components'
 import ButtonForCatalog from '@/components/ButtonForCatalog.vue'
 import OrderButton from '@/components/OrderButton.vue'
 import { mapGetters } from 'vuex'
@@ -33,6 +31,7 @@ export default {
     components: {
         ButtonForCatalog,
         OrderButton,
+        VPagination,
     },
     data() {
         return {
@@ -44,19 +43,26 @@ export default {
     computed: {
         ...mapGetters(['getDesserts']),
         filteredDesserts() {
-            if (!this.selectedCategory) {
-                return this.getDesserts
-            }
-            return this.getDesserts.filter((dessert) => dessert.category.includes(this.selectedCategory))
+            const desserts = !this.selectedCategory
+                ? this.getDesserts
+                : this.getDesserts.filter((dessert) => dessert.category.includes(this.selectedCategory))
+
+            console.log('Filtered Desserts:', desserts.length) // Додайте цей лог
+            return desserts
         },
+
         paginatedDesserts() {
             const start = (this.currentPage - 1) * this.dessertsPerPage
+            console.log('Paginated Desserts:', this.filteredDesserts.slice(start, start + this.dessertsPerPage)) // Додайте лог
             return this.filteredDesserts.slice(start, start + this.dessertsPerPage)
         },
         totalPages() {
-            return Math.ceil(this.filteredDesserts.length / this.dessertsPerPage)
+            const total = Math.ceil(this.filteredDesserts.length / this.dessertsPerPage)
+            console.log('Total Pages:', total) // Лог для перевірки
+            return total
         },
     },
+
     methods: {
         filterDesserts(category) {
             if (this.selectedCategory === category) {
@@ -69,15 +75,8 @@ export default {
         orderDessert(dessertId) {
             console.log(`Замовлено десерт з ID: ${dessertId}`)
         },
-        previousPage() {
-            if (this.currentPage > 1) {
-                this.currentPage--
-            }
-        },
-        nextPage() {
-            if (this.currentPage < this.totalPages) {
-                this.currentPage++
-            }
+        changePage(page) {
+            this.currentPage = page
         },
     },
 }

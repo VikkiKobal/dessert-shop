@@ -8,7 +8,7 @@
                 </div>
                 <div class="footer-text">
                     <h2 class="consultation-title">Записатися на консультацію</h2>
-                    <p>
+                    <p class="consultation-description">
                         Не впевнені у виборі десерта? Запишіться на консультацію! Ми допоможемо вам вибрати ідеальний
                         десерт для вашого свята. Просто заповніть форму, і ми зв'яжемося з вами для узгодження деталей.
                     </p>
@@ -104,7 +104,9 @@ export default {
 footer p {
     font-family: 'Alegreya Sans SC';
     font-size: 18px;
+    color: #000000; /* Текст у 100% насиченості */
     width: 500px;
+    margin-bottom: 20px;
 }
 
 form {
@@ -115,7 +117,8 @@ form {
 form input {
     margin-bottom: 10px;
     padding: 10px;
-    border: 1px solid #521448;
+    background-color: #ffffff; /* фон інпуту */
+    border: 0.3px solid #4b2348; /* колір та товщина бордюру */
     width: 300px;
 }
 

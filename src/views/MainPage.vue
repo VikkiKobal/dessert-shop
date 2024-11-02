@@ -1,15 +1,15 @@
 <template>
     <div>
         <div class="banner">
-            <AppHeader />
             <div class="banner-content">
                 <h1>
                     Ми спеціалізуємося на смачних десертах, <br />
                     виготовлених з високоякісних інгредієнтів.
                 </h1>
-                <MainButton buttonText="Оформити замовлення" />
+                <MainButton class="makeOrderButton" buttonText="Оформити замовлення" />
             </div>
         </div>
+
         <!-- Додатковий вміст -->
         <div class="info-section">
             <ul class="features">
@@ -190,7 +190,6 @@
 </template>
 
 <script>
-import AppHeader from '../components/AppHeader.vue'
 import MainButton from '../components/MainButton.vue'
 import { mapGetters } from 'vuex'
 import CustomRectangle from '../components/CustomRectangle.vue'
@@ -199,7 +198,6 @@ import FooterComponent from '../components/FooterComponent.vue'
 export default {
     name: 'MainPage',
     components: {
-        AppHeader,
         MainButton,
         CustomRectangle,
         FooterComponent,
@@ -250,10 +248,15 @@ export default {
 }
 
 h1 {
+    margin-top: 50px;
     font-family: 'Arsenal SC', sans-serif;
     font-size: 23px;
     color: black;
     line-height: 1.5;
+}
+
+.makeOrderButton {
+    margin-top: 25px;
 }
 
 /* Стилі для нового блоку */

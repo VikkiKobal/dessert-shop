@@ -1,14 +1,20 @@
 <template>
-    <div id="app">
+    <v-app>
         <AppHeader />
-        <router-view />
-    </div>
+        <v-container>
+            <router-view />
+        </v-container>
+    </v-app>
 </template>
 
 <script>
+import AppHeader from './components/AppHeader.vue' // імпортуйте заголовок, якщо він є
+
 export default {
     name: 'App',
-    components: {},
+    components: {
+        AppHeader, // зареєструйте компонент заголовка
+    },
 }
 </script>
 
