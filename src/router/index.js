@@ -1,13 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import MainPage from '../views/MainPage.vue';
 import DessertsPage from '../views/DessertsPage.vue';
-import DessertComponent from '../components/DessertComponent.vue';
+import DessertInfoView from '../views/DessertInfoView.vue';
 
 const routes = [
     {
         path: '/dessert/:id',
-        name: 'DessertComponent',
-        component: DessertComponent,
+        name: 'DessertInfoView',
+        component: DessertInfoView,
         props: true,
     },
     { path: '/', name: 'home', component: MainPage },

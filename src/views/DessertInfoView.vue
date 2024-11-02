@@ -57,13 +57,12 @@ export default {
     },
     data() {
         return {
-            quantity: 1, // Значення за замовчуванням для кількості
+            quantity: 1,
         }
     },
     methods: {
         orderDessert() {
             alert(`Замовлено ${this.quantity} порцій ${this.dessert.title}`)
-            // Додайте логіку для обробки замовлення
         },
     },
 }
@@ -76,7 +75,7 @@ export default {
 
 .dessert-image {
     width: 100%;
-    max-width: 400px; /* Максимальна ширина для зображення */
+    max-width: 400px;
 }
 
 .ingredients,

@@ -10,6 +10,8 @@
             <div class="dessert-images">
                 <div v-for="dessert in filteredDesserts" :key="dessert.id" class="dessert-item">
                     <img :src="dessert.url" :alt="'Dessert ' + dessert.id" />
+                    <order-button :label="'Замовити'" @click="orderDessert(dessert.id)" />
+                    <p class="dessert-price">{{ dessert.price }} UAH</p>
                 </div>
             </div>
         </div>
@@ -18,22 +20,23 @@
 
 <script>
 import ButtonForCatalog from '@/components/ButtonForCatalog.vue'
+import OrderButton from '@/components/OrderButton.vue' // Імпорт кнопки "Замовити"
 import { mapGetters } from 'vuex'
 
 export default {
     name: 'DessertsPage',
     components: {
         ButtonForCatalog,
+        OrderButton, // Додаємо компонент для кнопки замовлення
     },
     data() {
         return {
-            selectedCategory: null, // Track the selected category
+            selectedCategory: null,
         }
     },
     computed: {
         ...mapGetters(['getDesserts']),
         filteredDesserts() {
-            // Return all desserts if no category is selected, otherwise filter by category
             if (!this.selectedCategory) {
                 return this.getDesserts
             }
@@ -42,12 +45,15 @@ export default {
     },
     methods: {
         filterDesserts(category) {
-            // If the same category is clicked, reset to show all desserts
             if (this.selectedCategory === category) {
-                this.selectedCategory = null // Reset selection
+                this.selectedCategory = null
             } else {
-                this.selectedCategory = category // Set the selected category
+                this.selectedCategory = category
             }
+        },
+        orderDessert(dessertId) {
+            // Логіка замовлення десерту
+            console.log(`Замовлено десерт з ID: ${dessertId}`)
         },
     },
 }
@@ -59,41 +65,41 @@ body {
 }
 
 .button-container {
-    display: flex; /* вирівнювання кнопок в ряд */
-    gap: 20px; /* відстань між кнопками */
-    margin-top: 20px; /* відступ зверху для кнопок */
-    justify-content: center; /* вирівнювання кнопок по центру */
-    flex-wrap: wrap; /* щоб кнопки могли переходити на новий ряд, якщо не вистачає місця */
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
     margin-bottom: 40px;
 }
 
 .desserts-page {
     background-color: #eef3e0;
-    height: 100vh; /* висота сторінки на весь екран */
+    height: 100vh;
     display: flex;
-    flex-direction: column; /* вертикальне вирівнювання */
-    align-items: center; /* вирівнювання по центру */
-    justify-content: flex-start; /* вирівнювання зліва */
-    padding: 20px; /* відступи для контейнера */
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
 }
 
 .dessert-images-container {
-    width: 1250px; /* Ширина контейнера для 5 картинок, з урахуванням відступів */
+    width: 1250px;
 }
 
 .dessert-images {
-    display: flex; /* вирівнювання картинок в ряд */
-    flex-wrap: wrap; /* картинкам дозволено переходити на новий ряд */
-    justify-content: space-between; /* вирівнювання картинок по центру з відстанями */
-    margin-bottom: 20px; /* відступ між картинками та кнопками */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
 }
 
 .dessert-item {
-    margin: 15px; /* однаковий відступ між картинками */
+    margin: 15px;
 }
 
 img {
-    width: 215px; /* ширина картинок */
-    height: 285px; /* висота картинок */
+    width: 215px;
+    height: 285px;
 }
 </style>
