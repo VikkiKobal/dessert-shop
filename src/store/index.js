@@ -22,7 +22,7 @@ const store = createStore({
                 { id: 16, url: "https://i.pinimg.com/736x/19/02/53/1902539125e7a1a6c56ef329371f410c.jpg", category: ["фрукти в шоколаді", "торти"], title: "Банани в шоколаді", price: 360 },
                 { id: 17, url: "https://i.pinimg.com/564x/81/08/bf/8108bfa47b1ea635496beccb17a254f6.jpg", category: "чизкейки", title: "Чизкейк з лимоном", price: 850 },
                 { id: 18, url: "https://i.pinimg.com/564x/22/5b/64/225b64b83c653d5a69323894c781bc93.jpg", category: "чизкейки", title: "Чизкейк з персиком", price: 950 },
-                { id: 29, url: "https://i.pinimg.com/564x/ac/8f/3e/ac8f3e4ae3dd78b00f57edf04cebef36.jpg", category: "чизкейки", title: "Травневий чизкейк", price: 780 },
+                { id: 29, url: "https://i.pinimg.com/564x/ac/8f/3e/ac8f3e4ae3dd78b00f57edf04cebef36.jpg", category: "чизкейки", title: "Ягодно-ванільний чизкейк", price: 780 },
                 { id: 20, url: "https://i.pinimg.com/736x/cb/ce/e2/cbcee299f5644e8aa9b65005a18166c3.jpg", category: "торти", title: "Шоколадний торт з горіхами", price: 1150 },
                 { id: 21, url: "https://i.pinimg.com/736x/f6/a5/bc/f6a5bca8d2ceb74167cd4f6567d0ad03.jpg", category: "торти", title: "Медовик", price: 1000 },
                 { id: 22, url: "https://i.pinimg.com/564x/97/e8/a6/97e8a668d26ad858be17840015d26a48.jpg", category: "торти", title: "Торт з малини", price: 980 },

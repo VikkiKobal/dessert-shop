@@ -1,26 +1,39 @@
 <template>
     <div class="dessert-info">
-        <div v-if="dessert">
+        <div class="dessert-content">
             <img :src="dessert.url" alt="Dessert Image" class="dessert-image" />
-            <h1 class="dessert-title">{{ dessert.title }}</h1>
-            <p class="dessert-price">{{ dessert.price }} грн</p>
-            <p class="dessert-category">Категорія: {{ dessert.category }}</p>
+            <div class="dessert-details">
+                <h1 class="dessert-title">{{ dessert.title }}</h1>
+                <p class="dessert-ingredients">Склад: {{ dessert.ingredients }}</p>
+                <p class="dessert-nutrition">Харчова цінність: {{ dessert.nutrition }}</p>
+                <div class="divider"></div>
+                <div class="price-and-button">
+                    <!-- Контейнер для ціни та кнопки -->
+                    <p class="dessert-price">{{ dessert.price }} UAH</p>
+                    <main-button @click="orderDessert" buttonText="Замовити"></main-button>
+                    <!-- Використання компонента кнопки -->
+                </div>
+            </div>
         </div>
-        <router-link to="/" class="back-link">Назад до списку десертів</router-link>
     </div>
 </template>
 
 <script>
+import MainButton from '@/components/MainButton.vue'
 import { mapGetters } from 'vuex'
 
 export default {
+    components: { MainButton },
     computed: {
         ...mapGetters(['getDessertById']),
         dessert() {
-            // Get the dessert ID from the route parameters
             const dessertId = this.$route.params.id
-            // Fetch the dessert by ID
             return this.getDessertById(dessertId)
+        },
+    },
+    methods: {
+        orderDessert() {
+            alert(`Замовлення для ${this.dessert.title} успішно оформлено!`)
         },
     },
 }
@@ -30,17 +43,15 @@ export default {
 .dessert-info {
     text-align: left;
     margin: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 100%;
 }
 
 .dessert-content {
     display: flex;
-    align-items: center;
-    gap: 20px; /* Відстань між зображенням та текстом */
-    max-width: 800px; /* Максимальна ширина контейнера */
-    width: 100%;
+    margin-left: 50px;
+    margin-top: 60px;
+    align-items: flex-start;
+    gap: 50px;
 }
 
 .dessert-image {
@@ -55,35 +66,38 @@ export default {
 }
 
 .dessert-title {
-    font-family: 'Alegreya Sans SC', sans-serif;
+    font-family: 'Alegreya Sans SC';
     font-size: 35px;
     color: #4b2348;
     margin: 0 0 15px;
-    border-bottom: 2px solid #521448;
     padding-bottom: 10px;
 }
 
-.dessert-price {
+.dessert-ingredients,
+.dessert-nutrition {
     font-size: 20px;
-    color: green;
+    font-family: 'Alegreya Sans SC';
+    color: #4b2348;
+    font-weight: bold;
+    margin: 10px 0;
 }
 
-.dessert-category {
-    font-size: 16px;
-    color: gray;
+.divider {
+    border-top: 2px solid rgba(0, 0, 0, 0.5);
+    width: 70%;
+    margin-top: 30px;
 }
 
-.back-link {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 15px;
-    background-color: #4caf50;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
+.price-and-button {
+    display: flex;
+    align-items: center; /* Вирівнює елементи по вертикалі */
+    margin-top: 30px;
 }
 
-.back-link:hover {
-    background-color: #45a049;
+.dessert-price {
+    font-size: 30px;
+    color: black;
+    font-family: 'Alegreya Sans SC';
+    margin-right: 50px; /* Зменшено відстань між ціною та кнопкою */
 }
 </style>
