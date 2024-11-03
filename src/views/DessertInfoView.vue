@@ -9,23 +9,21 @@
                 <div class="divider"></div>
                 <div class="price-and-button">
                     <p class="dessert-price">{{ dessert.price }} UAH</p>
-                    <main-button @click="orderDessert" buttonText="Замовити"></main-button>
+                    <main-button @click="orderDessert" buttonText="Замовити" />
                 </div>
             </div>
         </div>
-
-        <!-- Повідомлення про успішне додавання товару -->
-        <SuccessMessage :visible="showSuccessMessage" />
     </div>
 </template>
 
 <script>
 import MainButton from '@/components/MainButton.vue'
-import SuccessMessage from '@/components/SuccessMessage.vue'
 import { mapGetters } from 'vuex'
 
 export default {
-    components: { MainButton, SuccessMessage },
+    components: {
+        MainButton,
+    },
     data() {
         return {
             showSuccessMessage: false, // Керує видимістю повідомлення
@@ -42,6 +40,7 @@ export default {
         orderDessert() {
             this.$store.commit('addToCart', this.dessert) // Додаємо товар до кошика
             this.$store.dispatch('triggerSuccessMessage') // Викликаємо повідомлення
+            this.showSuccessMessage = true // Optionally show success message
         },
     },
 }

@@ -1,63 +1,149 @@
 <template>
-    <div class="cart-container">
-        <div v-if="$store.state.cart && $store.state.cart.length > 0">
-            <p>У вашому кошику є {{ $store.state.cart.length }} товарів.</p>
-            <!-- Додатковий код для відображення товарів у кошику -->
-        </div>
-        <div v-else class="empty-cart">
-            <img src="@/assets/empty-cart.png" alt="Empty Cart" class="empty-cart-icon" />
-            <p class="empty-cart-text">Ваш кошик порожній. Час додати щось смачненьке!</p>
-            <!-- Додано клас для тексту -->
-            <!-- Використання router-link для навігації з вашою кнопкою -->
-            <router-link to="/desserts" class="catalog-button">
-                <MainButton buttonText="Переглянути каталог" />
-            </router-link>
-        </div>
+    <div class="contact-form">
+        <h1>Заповніть контактну форму</h1>
+        <p>Ваші контактні дані:</p>
+        <form @submit.prevent="submitForm" class="form-content">
+            <div class="form-group">
+                <input type="text" id="fullName" v-model="form.fullName" placeholder="Прізвище та ім'я" required />
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <input type="tel" id="phone" v-model="form.phone" placeholder="Номер телефону" required />
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" v-model="form.email" placeholder="E-mail" required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="date">Виберіть дату, на яку вам потрібно десерт:</label>
+                <Flatpickr v-model="form.date" id="date" placeholder="Виберіть дату" required></Flatpickr>
+            </div>
+            <div class="form-group">
+                <p>Виберіть спосіб оплати:</p>
+                <label>
+                    <input type="radio" v-model="form.paymentMethod" value="card" required />
+                    Карта
+                </label>
+                <label>
+                    <input type="radio" v-model="form.paymentMethod" value="cash" required />
+                    Готівка
+                </label>
+            </div>
+            <button type="submit">Надіслати</button>
+        </form>
     </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import MainButton from '@/components/MainButton.vue'
+import Flatpickr from 'vue-flatpickr-component'
+import 'flatpickr/dist/flatpickr.css'
 
 export default {
     components: {
-        MainButton, // Додавання кнопки до компонентів
+        Flatpickr,
     },
-    computed: {
-        ...mapGetters(['cartItems']),
+    data() {
+        return {
+            form: {
+                fullName: '',
+                phone: '',
+                email: '',
+                date: null,
+                paymentMethod: '',
+            },
+        }
+    },
+    methods: {
+        submitForm() {
+            console.log(this.form)
+            this.form = {
+                fullName: '',
+                phone: '',
+                email: '',
+                date: null,
+                paymentMethod: '',
+            }
+        },
     },
 }
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@400&display=swap');
+.contact-form {
+    text-align: left;
+    margin-top: 50px;
+    width: 40%; /* Задаємо ширину форми 30% */
+    font-family: 'Alegreya Sans SC';
+    padding-left: 100px; /* Лівий відступ */
+}
 
-.cart-container {
+h1 {
+    margin-bottom: 20px;
+}
+
+p {
+    margin-bottom: 20px;
+    font-family: 'Alegreya Sans SC';
+    font-size: 20px;
+}
+
+.form-content {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh; /* Висота вікна перегляду */
+    gap: 20px;
 }
 
-.empty-cart {
-    text-align: center; /* Центрування тексту */
+.form-row {
+    display: flex;
+    gap: 10px; /* Зменшуємо відстань між полями */
 }
 
-.empty-cart-icon {
-    width: 250px; /* Збільшена ширина іконки */
-    height: 250px; /* Збільшена висота іконки */
+.form-group {
+    flex: 1; /* Дозволяє елементам займати доступний простір */
 }
 
-.empty-cart-text {
-    font-family: 'Alegreya Sans SC'; /* Використання шрифту */
-    font-size: 22px; /* Розмір шрифту */
-    color: #4b2348; /* Колір тексту */
-    margin: 20px 0; /* Відступи зверху та знизу */
+input[type='text'],
+input[type='tel'],
+input[type='email'],
+.flatpickr-input {
+    padding: 10px;
+    border-radius: 20px;
+    font-family: 'Alegreya Sans SC';
+    border: 1px solid #521448;
+    background-color: white;
+    font-size: 16px;
+    width: 100%;
 }
 
-.catalog-button {
-    margin-top: 50px; /* Додатковий відступ зверху для кнопки */
+button {
+    padding: 10px;
+    font-family: 'Alegreya Sans SC';
+    background-color: #4b2348;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3b1a3c;
+}
+
+h1 {
+    font-size: 30px;
+    color: #4b2348;
+}
+
+/* Нові стилі для радіокнопок */
+label {
+    font-size: 18px; /* Збільшуємо розмір шрифту для тексту */
+    display: flex; /* Для вирівнювання кружечка з текстом */
+    align-items: center; /* Вертикальне вирівнювання */
+}
+
+input[type='radio'] {
+    transform: scale(1.5); /* Збільшуємо розмір радіокнопок */
+    margin-right: 10px; /* Відступ праворуч для кружечка */
 }
 </style>
