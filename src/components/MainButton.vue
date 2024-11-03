@@ -32,7 +32,7 @@ button {
     background-color: #2f002d;
     color: white;
     font-size: 18px;
-    font-family: 'Alegreya Sans SC';
+    font-family: 'Roboto';
     padding: 10px 20px;
     border: none;
     border-radius: 30px;

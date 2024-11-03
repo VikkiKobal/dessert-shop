@@ -66,7 +66,7 @@ export default {
     font-size: 28px;
     color: rgba(47, 0, 45, 0.85);
     font-weight: bold;
-    font-family: 'Alegreya Sans SC', sans-serif;
+    font-family: 'Roboto';
 }
 
 .icon {

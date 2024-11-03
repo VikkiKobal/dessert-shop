@@ -94,7 +94,7 @@ export default {
 }
 
 .consultation-title {
-    font-family: 'Alegreya Sans SC';
+    font-family: 'Roboto';
     font-size: 35px;
     color: #2f002d;
     opacity: 0.85;
@@ -102,7 +102,7 @@ export default {
 }
 
 footer p {
-    font-family: 'Alegreya Sans SC';
+    font-family: 'Roboto';
     font-size: 18px;
     color: #000000; /* Текст у 100% насиченості */
     width: 500px;
@@ -127,8 +127,8 @@ form input {
     background-color: #521448;
     color: white;
     border: none;
-    font-family: 'Alegreya Sans SC';
-    font-size: 17px;
+    font-family: 'Roboto';
+    font-size: 16px;
     width: 120px;
     cursor: pointer;
 }

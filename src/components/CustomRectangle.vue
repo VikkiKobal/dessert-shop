@@ -44,7 +44,7 @@ export default {
 }
 
 .client-feedback {
-    font-family: 'Alegreya Sans SC'; /* Set the font to Alegreya Sans SC */
+    font-family: 'Roboto'; /* Set the font to Alegreya Sans SC */
     font-size: 16px; /* Set the font size to 15px */
     color: #333;
 }

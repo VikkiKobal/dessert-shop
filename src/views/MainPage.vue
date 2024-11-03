@@ -79,15 +79,15 @@
             <div class="review-container">
                 <CustomRectangle
                     :clientPhoto="require('@/assets/women1.jpg')"
-                    feedbackText="Замовляла торт на день народження, і він перевершив усі мої очікування. Смак чудовий, а оформлення просто витончене. Гості були в захваті, і запитували, де я його придбала. Дуже вдячна за якість та оперативність!"
+                    feedbackText="Замовляла торт на день народження, і він перевершив усі мої очікування. Смак чудовий, а оформлення просто витончене. Гості були в захваті, і запитували, де я його придбала. Дуже вдячна за якість!"
                 />
                 <CustomRectangle
                     :clientPhoto="require('@/assets/women2.jpg')"
-                    feedbackText="Нещодавно замовляла еклери та макаруни, і це був справжній кулінарний шедевр! Кожен шматочок танув у роті, а оформлення було на найвищому рівні. Окреме дякую за швидку доставку та приємний сервіс."
+                    feedbackText="Нещодавно замовляла еклери та макаруни, і це був справжній кулінарний шедевр! Кожен шматочок танув у роті, а оформлення було на найвищому рівні. Окреме дякую за швидку доставку."
                 />
                 <CustomRectangle
                     :clientPhoto="require('@/assets/women3.jpg')"
-                    feedbackText="Десерт вийшов не тільки смачним, а й дуже гарним. Видно, що все робиться з любов’ю до деталей. Дякую за увагу до побажань і високий рівень сервісу!"
+                    feedbackText="Десерт вийшов не тільки смачним, а й дуже гарним. Видно, що все робиться з любов’ю до деталей. Дякую за увагу до побажань і високий рівень сервісу! Обов'язково замовлятиму від вас ще!!"
                 />
             </div>
         </div>
@@ -249,9 +249,9 @@ export default {
 
 h1 {
     margin-top: 50px;
-    font-family: 'Arsenal SC', sans-serif;
-    font-size: 23px;
-    color: black;
+    font-family: 'Roboto';
+    font-size: 22px;
+    color: #351b33;
     line-height: 1.5;
 }
 
@@ -269,7 +269,7 @@ h1 {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    font-family: 'Alegreya Sans SC';
+    font-family: 'Roboto';
     font-size: 20px;
     color: #4b2348;
 }
@@ -301,7 +301,7 @@ h1 {
 .section-title {
     text-align: left;
     padding-left: 20px;
-    font-family: 'Alegreya Sans SC';
+    font-family: 'Roboto';
     color: #2f002d;
     stroke: #4b2348;
     font-size: 30px;
@@ -323,7 +323,7 @@ h1 {
     background-color: #dde2d0;
     border: 1px solid rgba(75, 35, 72, 0.3);
     /* Колір бордера з прозорістю 0.3 */
-    font-family: 'Alegreya Sans SC';
+    font-family: 'Roboto';
     font-size: 20px;
     color: #4b2348;
     cursor: pointer;
@@ -382,7 +382,7 @@ button .arrow {
 .review-title {
     margin: 0;
     /* Видаляємо зайві відступи */
-    font-family: 'Alegreya Sans SC';
+    font-family: 'Roboto';
     /* Шрифт заголовка */
     font-size: 35px;
     /* Розмір шрифту заголовка */
@@ -424,7 +424,7 @@ button .arrow {
 }
 
 .favorites-title {
-    font-family: 'Alegreya Sans SC';
+    font-family: 'Roboto';
     font-size: 35px;
     color: #521448;
     text-align: left;
@@ -463,7 +463,7 @@ button .arrow {
 }
 
 .recipe-title {
-    font-family: 'Alegreya Sans SC';
+    font-family: 'Roboto';
     font-size: 35px;
     color: #521448;
     text-align: left;
@@ -526,7 +526,7 @@ button .arrow {
 
 .recipe-name {
     font-size: 18px;
-    font-family: 'Alegreya Sans SC';
+    font-family: 'Roboto';
     font-weight: 300;
     /* Тонший текст */
     letter-spacing: 1px;

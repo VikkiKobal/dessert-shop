@@ -1,6 +1,6 @@
 <template>
     <div class="form-container">
-        <div class="contact-form">
+        <div v-if="cartItems.length > 0" class="contact-form">
             <h1>Заповніть контактну форму</h1>
             <p>Ваші контактні дані:</p>
             <form @submit.prevent="submitForm" class="form-content">
@@ -17,7 +17,7 @@
                 </div>
                 <div class="form-group">
                     <label for="date">Виберіть дату, на яку вам потрібно десерт:</label>
-                    <Flatpickr v-model="form.date" id="date" placeholder="Виберіть дату" required></Flatpickr>
+                    <Flatpickr v-model="form.date" id="date" placeholder="Виберіть дату" required />
                 </div>
                 <div class="form-group">
                     <p>Виберіть спосіб оплати:</p>
@@ -30,11 +30,19 @@
                         Готівка
                     </label>
                 </div>
-                <button type="submit">Надіслати</button>
+                <button type="submit">Оформити замовлення</button>
             </form>
         </div>
 
-        <div class="cart">
+        <div v-else class="empty-cart">
+            <img src="@/assets/empty-cart.png" alt="Empty Cart" class="empty-cart-icon" />
+            <p class="empty-cart-text">Ваш кошик порожній. Час додати щось смачненьке!</p>
+            <router-link to="/desserts" class="catalog-button">
+                <MainButton buttonText="Переглянути каталог" />
+            </router-link>
+        </div>
+
+        <div class="cart" v-if="cartItems.length > 0">
             <h1>Ваше замовлення</h1>
             <ul>
                 <li v-for="item in cartItems" :key="item.id" class="cart-item">
@@ -55,7 +63,9 @@
     </div>
 </template>
 
+
 <script>
+import MainButton from '@/components/MainButton.vue'
 import Flatpickr from 'vue-flatpickr-component'
 import 'flatpickr/dist/flatpickr.css'
 import { mapGetters } from 'vuex'
@@ -63,6 +73,7 @@ import { mapGetters } from 'vuex'
 export default {
     components: {
         Flatpickr,
+        MainButton,
     },
     computed: {
         ...mapGetters(['getCartItems']),
@@ -117,7 +128,7 @@ export default {
 
 .contact-form {
     width: 40%; /* Width of the contact form */
-    font-family: 'Alegreya Sans SC';
+    font-family: 'Roboto';
     padding-left: 20px; /* Optional left padding */
     text-align: left; /* Align text to the left */
 }
@@ -130,7 +141,7 @@ export default {
 /* Existing styles for the contact form and cart items */
 h1 {
     margin-bottom: 20px;
-    font-family: 'Alegreya Sans SC';
+    font-family: 'Roboto';
     font-size: 30px;
     color: #4b2348;
 }
@@ -202,8 +213,8 @@ input[type='radio'] {
 }
 
 .dessert-image {
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    height: 200px;
     border-radius: 15px;
     object-fit: cover;
     margin-right: 10px;
@@ -216,5 +227,27 @@ input[type='radio'] {
 .total {
     font-weight: bold;
     font-size: 1.2em;
+}
+.empty-cart {
+    display: flex; /* Використовуємо flexbox */
+    flex-direction: column; /* Вертикальне розташування */
+    justify-content: center; /* Центруємо по вертикалі */
+    align-items: center; /* Центруємо по горизонталі */
+    height: 85vh; /* Висота на весь екран */
+    width: 85vw; /* Ширина на весь екран */
+}
+
+.empty-cart-icon {
+    width: 250px; /* Збільшена ширина іконки */
+    height: 250px; /* Збільшена висота іконки */
+}
+.empty-cart-text {
+    font-family: 'Roboto'; /* Використання шрифту */
+    font-size: 22px; /* Розмір шрифту */
+    color: #4b2348; /* Колір тексту */
+    margin: 20px 0; /* Відступи зверху та знизу */
+}
+.catalog-button {
+    margin-top: 20px; /* Додатковий відступ зверху для кнопки */
 }
 </style>

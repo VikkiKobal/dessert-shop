@@ -33,7 +33,7 @@ export default {
     width: 215px;
     height: 50px;
     font-size: 20px;
-    font-family: 'Alegreya Sans SC';
+    font-family: 'Roboto';
     border: none;
     border-radius: 5px;
     cursor: pointer;

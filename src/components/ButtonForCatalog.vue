@@ -21,7 +21,7 @@ export default {
     background-color: rgba(82, 20, 72, 0.1);
     border: 0.5px solid #521448;
     border-radius: 30px;
-    font-family: Alegreya Sans SC;
+    font-family: 'Roboto';
     font-size: 20px;
     color: rgb(0, 0, 0);
     cursor: pointer;

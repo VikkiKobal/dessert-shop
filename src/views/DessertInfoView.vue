@@ -73,7 +73,7 @@ export default {
 }
 
 .dessert-title {
-    font-family: 'Alegreya Sans SC';
+    font-family: 'Roboto';
     font-size: 35px;
     color: #4b2348;
     margin: 0 0 15px;
@@ -83,7 +83,7 @@ export default {
 .dessert-ingredients,
 .dessert-nutrition {
     font-size: 20px;
-    font-family: 'Alegreya Sans SC';
+    font-family: 'Roboto';
     color: #4b2348;
     font-weight: bold;
     margin: 10px 0;
@@ -104,7 +104,7 @@ export default {
 .dessert-price {
     font-size: 30px;
     color: black;
-    font-family: 'Alegreya Sans SC';
+    font-family: 'Roboto';
     margin-right: 50px;
 }
 </style>

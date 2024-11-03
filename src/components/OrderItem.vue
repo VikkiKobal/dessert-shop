@@ -87,16 +87,6 @@ export default {
         align-items: center;
         margin: 12px 0;
 
-        button {
-            width: 30px;
-            height: 30px;
-            border: none;
-            background-color: #007bff;
-            color: white;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-
         .quantity-input {
             width: 50px;
             text-align: center;
@@ -107,20 +97,6 @@ export default {
     .total-price {
         font-size: 1.2rem;
         font-weight: bold;
-    }
-
-    .add-to-cart-button {
-        background-color: #28a745;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 1rem;
-
-        &:hover {
-            background-color: #218838;
-        }
     }
 }
 </style>
