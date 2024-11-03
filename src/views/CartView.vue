@@ -44,24 +44,27 @@
 
         <div class="cart" v-if="cartItems.length > 0">
             <h1>Ваше замовлення</h1>
-            <ul>
-                <li v-for="item in cartItems" :key="item.id" class="cart-item">
-                    <img :src="item.url" alt="Dessert" class="dessert-image" />
-                    <div class="dessert-details">
-                        <h3>{{ item.title }}</h3>
-                        <p>Ціна: {{ item.price }} грн</p>
-                        <p>Кількість: {{ item.quantity }}</p>
-                        <p>Сума: {{ calculateTotal(item) }} грн</p>
-                        <button @click="removeFromCart(item.id)">Видалити</button>
-                    </div>
-                </li>
-            </ul>
+            <div class="cart-items-container">
+                <ul>
+                    <li v-for="item in cartItems" :key="item.id" class="cart-item">
+                        <img :src="item.url" alt="Dessert" class="dessert-image" />
+                        <div class="dessert-details">
+                            <h3>{{ item.title }}</h3>
+                            <p>Ціна: {{ item.price }} грн</p>
+                            <p>Кількість: {{ item.quantity }}</p>
+                            <p>Сума: {{ calculateTotal(item) }} грн</p>
+                            <button @click="removeFromCart(item.id)">Видалити</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
             <div class="total">
                 <h3>Загальна сума: {{ totalPrice }} грн</h3>
             </div>
         </div>
     </div>
 </template>
+
 
 
 <script>
@@ -119,26 +122,37 @@ export default {
 
 <style scoped>
 .form-container {
-    display: flex; /* Use flexbox for layout */
-    justify-content: flex-start; /* Align items at the start */
-    align-items: flex-start; /* Align items at the top */
-    margin-top: 50px; /* Top margin for the entire container */
-    margin-left: 70px; /* Adjusted left margin */
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 50px;
+    margin-left: 70px;
 }
 
 .contact-form {
-    width: 40%; /* Width of the contact form */
+    width: 40%;
     font-family: 'Roboto';
-    padding-left: 20px; /* Optional left padding */
-    text-align: left; /* Align text to the left */
+    padding-left: 20px;
+    text-align: left;
 }
 
 .cart {
-    width: 30%; /* Set a width for the cart */
-    margin-left: 10px; /* Reduced left margin */
+    width: 50%; /* Збільшення ширини контейнера кошика */
+    margin-left: 100px; /* Зменшення лівого відступу для переміщення правіше */
+    max-height: 800px; /* Додати максимальну висоту для прокручування */
+    overflow-y: auto; /* Додати прокручування для вертикальної осі */
 }
 
-/* Existing styles for the contact form and cart items */
+/* Новий стиль для контейнера з товарами */
+.cart-items-container {
+    max-height: 450px; /* Висота контейнера з замовленням */
+    overflow-y: auto; /* Додати прокрутку вертикально */
+    background-color: rgba(227, 180, 219, 0.1); /* Зміна кольору фону */
+    border: 1px solid rgba(227, 180, 219, 0.5); /* Обрамлення */
+    border-radius: 10px; /* Закруглення кутів */
+    padding: 10px; /* Внутрішні відступи */
+}
+
 h1 {
     margin-bottom: 20px;
     font-family: 'Roboto';
@@ -151,6 +165,7 @@ p {
     font-size: 20px;
 }
 
+/* Інші стилі залишаються без змін */
 .form-content {
     display: flex;
     flex-direction: column;
@@ -203,10 +218,6 @@ input[type='radio'] {
     margin-right: 10px;
 }
 
-.cart {
-    margin-left: 300px; /* Adjust margin for cart */
-}
-
 .cart-item {
     display: flex;
     margin-bottom: 15px;
@@ -228,26 +239,29 @@ input[type='radio'] {
     font-weight: bold;
     font-size: 1.2em;
 }
+
 .empty-cart {
-    display: flex; /* Використовуємо flexbox */
-    flex-direction: column; /* Вертикальне розташування */
-    justify-content: center; /* Центруємо по вертикалі */
-    align-items: center; /* Центруємо по горизонталі */
-    height: 85vh; /* Висота на весь екран */
-    width: 85vw; /* Ширина на весь екран */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 87vh;
+    width: 87vw;
 }
 
 .empty-cart-icon {
-    width: 250px; /* Збільшена ширина іконки */
-    height: 250px; /* Збільшена висота іконки */
+    width: 250px;
+    height: 250px;
 }
+
 .empty-cart-text {
-    font-family: 'Roboto'; /* Використання шрифту */
-    font-size: 22px; /* Розмір шрифту */
-    color: #4b2348; /* Колір тексту */
-    margin: 20px 0; /* Відступи зверху та знизу */
+    font-family: 'Roboto';
+    font-size: 22px;
+    color: #4b2348;
+    margin: 20px 0;
 }
+
 .catalog-button {
-    margin-top: 20px; /* Додатковий відступ зверху для кнопки */
+    margin-top: 20px;
 }
 </style>
