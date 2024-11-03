@@ -9,10 +9,14 @@
             </ul>
             <div @click="openCart" class="cart-icon">
                 <img src="@/assets/shopping-cart.png" alt="Icon" class="icon" />
+                <div class="cart-count" v-if="$store.state.cart.length > 0">
+                    {{ $store.state.cart.length }}
+                </div>
             </div>
         </nav>
     </header>
 </template>
+
 
 <script>
 export default {
@@ -68,11 +72,27 @@ export default {
 .icon {
     width: 47px;
     height: 40px;
-    margin-right: -80px;
 }
 
 .cart-icon {
+    position: relative; /* Встановлюємо відносне позиціонування */
     cursor: pointer;
+}
+
+.cart-count {
+    position: absolute; /* Встановлюємо абсолютне позиціонування */
+    top: -10px; /* Регулюємо вертикальне позиціонування */
+    right: -10px; /* Регулюємо горизонтальне позиціонування */
+    background-color: #60456b; /* Фіолетовий колір */
+    color: white; /* Білий колір тексту */
+    border: 2px solid white; /* Білий бордер */
+    border-radius: 50%; /* Робимо кружечком */
+    width: 30px; /* Ширина кружечка */
+    height: 30px; /* Висота кружечка */
+    display: flex; /* Вирівнюємо текст по центру */
+    align-items: center; /* Центруємо по вертикалі */
+    justify-content: center; /* Центруємо по горизонталі */
+    font-size: 16px; /* Розмір шрифту */
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@600&display=swap');
