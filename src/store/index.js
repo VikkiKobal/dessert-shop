@@ -51,17 +51,29 @@ const store = createStore({
         addToCart(state, dessert) {
             const existingItem = state.cart.find(item => item.id === dessert.id);
             if (existingItem) {
-                existingItem.quantity += 1; // Increase quantity if already in cart
+                existingItem.quantity += 1; // Збільшуємо кількість, якщо вже в кошику
             } else {
-                state.cart.push({ ...dessert, quantity: 1 }); // Add new item with quantity
+                state.cart.push({ ...dessert, quantity: 1 }); // Додаємо новий елемент з кількістю
+            }
+        },
+        removeFromCart(state, dessertId) {
+            state.cart = state.cart.filter(item => item.id !== dessertId); // Видаляємо елемент з кошика
+        },
+        increaseQuantity() {
+            this.quantity++;
+        },
+        decreaseQuantity() {
+            if (this.quantity > 1) {
+                this.quantity--;
             }
         },
     },
     actions: {
-        triggerSuccessMessage({ commit }) {
-            commit('showSuccessMessage')
+        triggerAddToCart({ commit }, dessert) {
+            commit('addToCart', dessert);
         }
     },
+
     getters: {
         getDesserts(state) {
             if (state.selectedCategory) {
@@ -84,7 +96,6 @@ const store = createStore({
         getCartItems(state) {
             return state.cart; // Повертає елементи кошика
         }
-
     }
 
 
