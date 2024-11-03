@@ -1,39 +1,41 @@
 <template>
-    <div class="contact-form">
-        <h1>Заповніть контактну форму</h1>
-        <p>Ваші контактні дані:</p>
-        <form @submit.prevent="submitForm" class="form-content">
-            <div class="form-group">
-                <input type="text" id="fullName" v-model="form.fullName" placeholder="Прізвище та ім'я" required />
-            </div>
-            <div class="form-row">
+    <div class="form-container">
+        <div class="contact-form">
+            <h1>Заповніть контактну форму</h1>
+            <p>Ваші контактні дані:</p>
+            <form @submit.prevent="submitForm" class="form-content">
                 <div class="form-group">
-                    <input type="tel" id="phone" v-model="form.phone" placeholder="Номер телефону" required />
+                    <input type="text" id="fullName" v-model="form.fullName" placeholder="Прізвище та ім'я" required />
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="tel" id="phone" v-model="form.phone" placeholder="Номер телефону" required />
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" v-model="form.email" placeholder="E-mail" required />
+                    </div>
                 </div>
                 <div class="form-group">
-                    <input type="email" id="email" v-model="form.email" placeholder="E-mail" required />
+                    <label for="date">Виберіть дату, на яку вам потрібно десерт:</label>
+                    <Flatpickr v-model="form.date" id="date" placeholder="Виберіть дату" required></Flatpickr>
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="date">Виберіть дату, на яку вам потрібно десерт:</label>
-                <Flatpickr v-model="form.date" id="date" placeholder="Виберіть дату" required></Flatpickr>
-            </div>
-            <div class="form-group">
-                <p>Виберіть спосіб оплати:</p>
-                <label>
-                    <input type="radio" v-model="form.paymentMethod" value="card" required />
-                    Карта
-                </label>
-                <label>
-                    <input type="radio" v-model="form.paymentMethod" value="cash" required />
-                    Готівка
-                </label>
-            </div>
-            <button type="submit">Надіслати</button>
-        </form>
+                <div class="form-group">
+                    <p>Виберіть спосіб оплати:</p>
+                    <label>
+                        <input type="radio" v-model="form.paymentMethod" value="card" required />
+                        Карта
+                    </label>
+                    <label>
+                        <input type="radio" v-model="form.paymentMethod" value="cash" required />
+                        Готівка
+                    </label>
+                </div>
+                <button type="submit">Надіслати</button>
+            </form>
+        </div>
 
         <div class="cart">
-            <h2>Ваш Кошик</h2>
+            <h1>Ваше замовлення</h1>
             <ul>
                 <li v-for="item in cartItems" :key="item.id" class="cart-item">
                     <img :src="item.url" alt="Dessert" class="dessert-image" />
@@ -104,18 +106,31 @@ export default {
 }
 </script>
 
-
 <style scoped>
-.contact-form {
-    text-align: left;
-    margin-top: 50px;
-    width: 40%; /* Задаємо ширину форми 40% */
-    font-family: 'Alegreya Sans SC';
-    padding-left: 100px; /* Лівий відступ */
+.form-container {
+    display: flex; /* Use flexbox for layout */
+    justify-content: flex-start; /* Align items at the start */
+    align-items: flex-start; /* Align items at the top */
+    margin-top: 50px; /* Top margin for the entire container */
+    margin-left: 70px; /* Adjusted left margin */
 }
 
+.contact-form {
+    width: 40%; /* Width of the contact form */
+    font-family: 'Alegreya Sans SC';
+    padding-left: 20px; /* Optional left padding */
+    text-align: left; /* Align text to the left */
+}
+
+.cart {
+    width: 30%; /* Set a width for the cart */
+    margin-left: 10px; /* Reduced left margin */
+}
+
+/* Existing styles for the contact form and cart items */
 h1 {
     margin-bottom: 20px;
+    font-family: 'Alegreya Sans SC';
     font-size: 30px;
     color: #4b2348;
 }
@@ -133,11 +148,11 @@ p {
 
 .form-row {
     display: flex;
-    gap: 10px; /* Зменшуємо відстань між полями */
+    gap: 10px;
 }
 
 .form-group {
-    flex: 1; /* Дозволяє елементам займати доступний простір */
+    flex: 1;
 }
 
 input[type='text'],
@@ -166,20 +181,19 @@ button:hover {
     background-color: #3b1a3c;
 }
 
-/* Нові стилі для радіокнопок */
 label {
-    font-size: 18px; /* Збільшуємо розмір шрифту для тексту */
-    display: flex; /* Для вирівнювання кружечка з текстом */
-    align-items: center; /* Вертикальне вирівнювання */
+    font-size: 18px;
+    display: flex;
+    align-items: center;
 }
 
 input[type='radio'] {
-    transform: scale(1.5); /* Збільшуємо розмір радіокнопок */
-    margin-right: 10px; /* Відступ праворуч для кружечка */
+    transform: scale(1.5);
+    margin-right: 10px;
 }
 
 .cart {
-    margin-top: 50px; /* Відступ між формою і кошиком */
+    margin-left: 300px; /* Adjust margin for cart */
 }
 
 .cart-item {
@@ -188,8 +202,9 @@ input[type='radio'] {
 }
 
 .dessert-image {
-    width: 100px;
-    height: 100px;
+    width: 180px;
+    height: 180px;
+    border-radius: 15px;
     object-fit: cover;
     margin-right: 10px;
 }
