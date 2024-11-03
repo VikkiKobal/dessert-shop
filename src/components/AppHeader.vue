@@ -7,7 +7,9 @@
                 <li><router-link :to="{ name: 'about' }">ПРО НАС</router-link></li>
                 <li><router-link :to="{ name: 'faq' }">Q&A</router-link></li>
             </ul>
-            <img src="@/assets/shopping-cart.png" alt="Icon" class="icon" />
+            <div @click="openCart" class="cart-icon">
+                <img src="@/assets/shopping-cart.png" alt="Icon" class="icon" />
+            </div>
         </nav>
     </header>
 </template>
@@ -15,6 +17,11 @@
 <script>
 export default {
     name: 'AppHeader',
+    methods: {
+        openCart() {
+            this.$router.push('/cart') // або інший спосіб відкриття кошика
+        },
+    },
 }
 </script>
 
@@ -62,6 +69,10 @@ export default {
     width: 47px;
     height: 40px;
     margin-right: -80px;
+}
+
+.cart-icon {
+    cursor: pointer;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@600&display=swap');

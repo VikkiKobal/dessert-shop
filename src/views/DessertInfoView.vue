@@ -8,22 +8,29 @@
                 <p class="dessert-nutrition">Харчова цінність: {{ dessert.nutrition }}</p>
                 <div class="divider"></div>
                 <div class="price-and-button">
-                    <!-- Контейнер для ціни та кнопки -->
                     <p class="dessert-price">{{ dessert.price }} UAH</p>
                     <main-button @click="orderDessert" buttonText="Замовити"></main-button>
-                    <!-- Використання компонента кнопки -->
                 </div>
             </div>
         </div>
+
+        <!-- Повідомлення про успішне додавання товару -->
+        <SuccessMessage :visible="showSuccessMessage" />
     </div>
 </template>
 
 <script>
 import MainButton from '@/components/MainButton.vue'
+import SuccessMessage from '@/components/SuccessMessage.vue'
 import { mapGetters } from 'vuex'
 
 export default {
-    components: { MainButton },
+    components: { MainButton, SuccessMessage },
+    data() {
+        return {
+            showSuccessMessage: false, // Керує видимістю повідомлення
+        }
+    },
     computed: {
         ...mapGetters(['getDessertById']),
         dessert() {
@@ -33,7 +40,8 @@ export default {
     },
     methods: {
         orderDessert() {
-            alert(`Замовлення для ${this.dessert.title} успішно оформлено!`)
+            this.$store.commit('addToCart', this.dessert) // Додаємо товар до кошика
+            this.$store.dispatch('triggerSuccessMessage') // Викликаємо повідомлення
         },
     },
 }
@@ -90,7 +98,7 @@ export default {
 
 .price-and-button {
     display: flex;
-    align-items: center; /* Вирівнює елементи по вертикалі */
+    align-items: center;
     margin-top: 30px;
 }
 
@@ -98,6 +106,6 @@ export default {
     font-size: 30px;
     color: black;
     font-family: 'Alegreya Sans SC';
-    margin-right: 50px; /* Зменшено відстань між ціною та кнопкою */
+    margin-right: 50px;
 }
 </style>

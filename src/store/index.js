@@ -32,11 +32,34 @@ const store = createStore({
             ],
 
             selectedCategory: null,
+            cart: [],
         };
     },
     mutations: {
         setSelectedCategory(state, category) {
             state.selectedCategory = category;
+        },
+        showSuccessMessage(state) {
+            state.showSuccessMessage = true
+            setTimeout(() => {
+                state.showSuccessMessage = false
+            }, 4000)
+        },
+        hideSuccessMessage(state) {
+            state.showSuccessMessage = false
+        },
+        addToCart(state, dessert) {
+            const existingItem = state.cart.find(item => item.id === dessert.id);
+            if (existingItem) {
+                existingItem.quantity += 1; // Increase quantity if already in cart
+            } else {
+                state.cart.push({ ...dessert, quantity: 1 }); // Add new item with quantity
+            }
+        },
+    },
+    actions: {
+        triggerSuccessMessage({ commit }) {
+            commit('showSuccessMessage')
         }
     },
     getters: {
@@ -57,6 +80,9 @@ const store = createStore({
         },
         getDessertById: (state) => (id) => {
             return state.desserts.find(dessert => dessert.id === Number(id));
+        },
+        getCartItems(state) {
+            return state.cart; // Повертає елементи кошика
         }
 
     }

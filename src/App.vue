@@ -1,19 +1,35 @@
 <template>
     <v-app>
-        <AppHeader />
+        <SuccessMessage v-if="showSuccessMessage" />
+        <AppHeader @toggle-cart="toggleCart" />
         <v-container>
             <router-view />
+            <CartView v-if="isCartVisible" />
+            <!-- Тут кошик має з'явитися, коли isCartVisible === true -->
         </v-container>
     </v-app>
 </template>
 
+
 <script>
-import AppHeader from './components/AppHeader.vue' // імпортуйте заголовок, якщо він є
+import AppHeader from './components/AppHeader.vue'
+import CartView from './views/CartView.vue'
 
 export default {
     name: 'App',
     components: {
-        AppHeader, // зареєструйте компонент заголовка
+        AppHeader,
+        CartView,
+    },
+    data() {
+        return {
+            isCartVisible: false, // Стан видимості кошика
+        }
+    },
+    methods: {
+        toggleCart() {
+            this.isCartVisible = !this.isCartVisible // Перемикаємо видимість кошика
+        },
     },
 }
 </script>

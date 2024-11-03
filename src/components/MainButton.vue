@@ -19,8 +19,6 @@ export default {
         handleClick() {
             if (this.onClick) {
                 this.onClick()
-            } else {
-                alert('Кнопка натиснута!')
             }
         },
     },
