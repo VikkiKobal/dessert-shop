@@ -14,7 +14,7 @@ const store = createStore({
                 { id: 8, url: "https://i.pinimg.com/enabled_lo/564x/7e/91/a3/7e91a34ec12ec02f92ef241a654b88f6.jpg", category: "фрукти в шоколаді", title: "Полуниця в шоколаді", price: 425 },
                 { id: 9, url: "https://i.pinimg.com/enabled_lo/564x/01/fb/2f/01fb2f81d986b3844b899a6358e773a8.jpg", category: "торти", title: "Шоколадний торт з вишнею", price: 910 },
                 { id: 10, url: "https://i.pinimg.com/564x/f5/39/53/f539537f23f20272b738bfbfbdd5b932.jpg", category: "торти", title: "Ванільний торт", price: 1090 },
-                { id: 11, url: "https://i.pinimg.com/564x/55/d1/1b/55d11b6a4f22a70f163c8a36597bc0d9.jpg", category: ["макаронс", "торти"], title: "Еклери зі смаком тирамісу", price: 112 },
+                { id: 11, url: "https://i.pinimg.com/564x/55/d1/1b/55d11b6a4f22a70f163c8a36597bc0d9.jpg", category: ["макаронс", "торти"], title: "Макаронси зі смаком тирамісу", price: 112 },
                 { id: 12, url: "https://i.pinimg.com/736x/24/33/36/243336f743db2701d60719a64eac0743.jpg", category: "макаронс", title: "Макарон ванільний", price: 70 },
                 { id: 13, url: "https://i.pinimg.com/564x/1d/2c/a0/1d2ca05d1b7cf9e5bf17a250c1a1ae7a.jpg", category: "чизкейки", title: "Полуничний чизкейк", price: 950 },
                 { id: 14, url: "https://i.pinimg.com/564x/b9/55/9d/b9559d5c22fbf2dc83afcf9bbab4991b.jpg", category: "чизкейки", title: "Карамельний чизкейк", price: 760 },
@@ -26,7 +26,7 @@ const store = createStore({
                 { id: 20, url: "https://i.pinimg.com/736x/cb/ce/e2/cbcee299f5644e8aa9b65005a18166c3.jpg", category: "торти", title: "Шоколадний торт з горіхами", price: 1150 },
                 { id: 21, url: "https://i.pinimg.com/736x/f6/a5/bc/f6a5bca8d2ceb74167cd4f6567d0ad03.jpg", category: "торти", title: "Медовик", price: 1000 },
                 { id: 22, url: "https://i.pinimg.com/564x/97/e8/a6/97e8a668d26ad858be17840015d26a48.jpg", category: "торти", title: "Торт з малини", price: 980 },
-                { id: 23, url: "https://i.pinimg.com/736x/a4/73/21/a47321ddb089e497b2cd689fc859e4c1.jpg", category: "макаронс", title: "Еклери з кремом", price: 120 },
+                { id: 23, url: "https://i.pinimg.com/736x/a4/73/21/a47321ddb089e497b2cd689fc859e4c1.jpg", category: "макаронс", title: "Макаронси", price: 120 },
                 { id: 24, url: "https://i.pinimg.com/736x/73/6c/6a/736c6a114a265d9b601810ffcb2f4e2f.jpg", category: "макаронс", title: "Макарон малиновий", price: 75 },
                 { id: 25, url: "https://i.pinimg.com/564x/1f/64/0e/1f640e12b22021ccb1e40ba8379f378d.jpg", category: "чизкейки", title: "Чизкейк з шоколадом", price: 920 },
             ],
@@ -59,14 +59,19 @@ const store = createStore({
         removeFromCart(state, dessertId) {
             state.cart = state.cart.filter(item => item.id !== dessertId); // Видаляємо елемент з кошика
         },
-        increaseQuantity() {
-            this.quantity++;
-        },
-        decreaseQuantity() {
-            if (this.quantity > 1) {
-                this.quantity--;
+        increaseQuantity(state, id) {
+            const item = state.cart.find(item => item.id === id); // Changed from state.cartItems to state.cart
+            if (item) {
+                item.quantity++;
             }
         },
+        decreaseQuantity(state, id) {
+            const item = state.cart.find(item => item.id === id); // Changed from state.cartItems to state.cart
+            if (item && item.quantity > 1) {
+                item.quantity--;
+            }
+        },
+
     },
     actions: {
         triggerAddToCart({ commit }, dessert) {

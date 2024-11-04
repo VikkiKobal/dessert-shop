@@ -51,7 +51,12 @@
                         <div class="dessert-details">
                             <h3>{{ item.title }}</h3>
                             <p>Ціна: {{ item.price }} грн</p>
-                            <p>Кількість: {{ item.quantity }}</p>
+                            <p>
+                                Кількість:
+                                <button @click="decreaseQuantity(item.id)" class="quantity-button">-</button>
+                                {{ item.quantity }}
+                                <button @click="increaseQuantity(item.id)" class="quantity-button">+</button>
+                            </p>
                             <p>Сума: {{ calculateTotal(item) }} грн</p>
                             <button @click="removeFromCart(item.id)">Видалити</button>
                         </div>
@@ -116,6 +121,13 @@ export default {
         removeFromCart(id) {
             this.$store.commit('removeFromCart', id) // Додати мутацію для видалення елемента
         },
+
+        increaseQuantity(id) {
+            this.$store.commit('increaseQuantity', id) // Додати мутацію для збільшення кількості
+        },
+        decreaseQuantity(id) {
+            this.$store.commit('decreaseQuantity', id) // Додати мутацію для зменшення кількості
+        },
     },
 }
 </script>
@@ -127,6 +139,21 @@ export default {
     align-items: flex-start;
     margin-top: 50px;
     margin-left: 70px;
+}
+
+.dessert-details {
+    text-align: left; /* Вирівнювання тексту по лівому краю */
+    margin-left: 20px;
+}
+
+.dessert-details h3 {
+    margin: 10px 0; /* Відстань під назвою товару */
+}
+
+.dessert-details p:nth-of-type(1),
+.dessert-details p:nth-of-type(2),
+.dessert-details p:nth-of-type(3) {
+    margin-bottom: 3px; /* Зменшення відстані між цими елементами */
 }
 
 .contact-form {
@@ -263,5 +290,10 @@ input[type='radio'] {
 
 .catalog-button {
     margin-top: 20px;
+}
+
+.quantity-button {
+    width: 40px;
+    height: 40px;
 }
 </style>
