@@ -31,7 +31,7 @@ export default {
 button {
     background-color: #2f002d;
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     font-family: 'Roboto';
     padding: 10px 20px;
     border: none;

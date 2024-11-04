@@ -40,12 +40,12 @@ export default {
 }
 
 .navbar {
+    margin-left: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     max-width: 1200px;
-    margin: 0 auto;
 }
 
 .nav-links {
@@ -62,8 +62,9 @@ export default {
 }
 
 .nav-links a {
+    margin-left: 10px;
     text-decoration: none;
-    font-size: 28px;
+    font-size: 24px;
     color: rgba(47, 0, 45, 0.85);
     font-weight: bold;
     font-family: 'Roboto';

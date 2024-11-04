@@ -9,7 +9,7 @@
                 <div class="divider"></div>
                 <div class="price-and-button">
                     <p class="dessert-price">{{ dessert.price }} UAH</p>
-                    <main-button @click="orderDessert" buttonText="Замовити" />
+                    <add-to-cart @click="orderDessert" buttonText="Замовити" />
                 </div>
             </div>
         </div>
@@ -17,12 +17,12 @@
 </template>
 
 <script>
-import MainButton from '@/components/MainButton.vue'
+import AddToCart from '@/components/AddToCart.vue'
 import { mapGetters } from 'vuex'
 
 export default {
     components: {
-        MainButton,
+        AddToCart,
     },
     data() {
         return {

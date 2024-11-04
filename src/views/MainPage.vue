@@ -250,7 +250,7 @@ export default {
 h1 {
     margin-top: 50px;
     font-family: 'Roboto';
-    font-size: 22px;
+    font-size: 20px;
     color: #351b33;
     line-height: 1.5;
 }
@@ -270,7 +270,7 @@ h1 {
     justify-content: space-between;
     flex-wrap: wrap;
     font-family: 'Roboto';
-    font-size: 20px;
+    font-size: 18px;
     color: #4b2348;
 }
 
@@ -295,43 +295,49 @@ h1 {
 
 .products-section {
     margin: 40px 0;
-    font-size: 20px;
+    font-size: 19px;
 }
 
 .section-title {
-    text-align: left;
-    padding-left: 20px;
+    padding-left: 30px;
     font-family: 'Roboto';
-    color: #2f002d;
-    stroke: #4b2348;
+    font-size: 29px;
+    color: #521448;
+    text-align: left;
     font-size: 30px;
     margin-top: 50px;
 }
 
+.products-section {
+    margin: 40px 0;
+    font-size: 20px; /* Загальний розмір шрифту */
+}
+
 .products {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between; /* Для рівномірного розподілу елементів */
+    flex-wrap: wrap; /* Дозволяє перенесення елементів на новий рядок */
 }
 
 .product {
     text-align: center;
+    flex: 1 1 220px; /* Гнучкий розмір з мінімальною шириною 220px */
+    margin: 10px; /* Відступ між елементами */
 }
 
 .product button {
-    width: 325px;
+    width: 325px; /* Кнопки займають 100% ширини продукту */
     height: 45px;
     background-color: #dde2d0;
     border: 1px solid rgba(75, 35, 72, 0.3);
-    /* Колір бордера з прозорістю 0.3 */
     font-family: 'Roboto';
-    font-size: 20px;
+    font-size: 20px; /* Розмір шрифту кнопки */
     color: #4b2348;
     cursor: pointer;
 }
 
 button .arrow {
-    margin-left: 20px;
-    /* Відступ між текстом і стрілкою */
+    margin-left: 20px; /* Відступ між текстом та стрілкою */
 }
 
 .product img {
@@ -341,7 +347,36 @@ button .arrow {
 }
 
 .view-catalog-button {
-    width: 320px;
+    width: 320px; /* Ширина кнопки перегляду каталогу */
+}
+
+/* Медіа-запити для менших комп'ютерних екранів */
+@media (max-width: 1024px) {
+    .products {
+        justify-content: center; /* Центрування елементів на менших екранах */
+    }
+
+    .product {
+        flex: 1 1 180px; /* Зменшення мінімального розміру до 180px */
+    }
+
+    .product button {
+        font-size: 18px; /* Зменшення розміру шрифту кнопки */
+    }
+
+    .products-section {
+        font-size: 18px; /* Зменшення загального розміру шрифту */
+    }
+}
+
+@media (max-width: 768px) {
+    .products-section {
+        font-size: 16px; /* Додаткове зменшення шрифту на малих екранах */
+    }
+
+    .product button {
+        font-size: 16px; /* Зменшення розміру шрифту кнопки */
+    }
 }
 
 .purple-container {
@@ -384,7 +419,7 @@ button .arrow {
     /* Видаляємо зайві відступи */
     font-family: 'Roboto';
     /* Шрифт заголовка */
-    font-size: 35px;
+    font-size: 29px;
     /* Розмір шрифту заголовка */
     text-align: left;
     /* Вирівнювання тексту по лівому краю */
@@ -425,11 +460,13 @@ button .arrow {
 
 .favorites-title {
     font-family: 'Roboto';
-    font-size: 35px;
+    font-size: 29px;
     color: #521448;
     text-align: left;
     /* Вирівнюємо заголовок зліва */
     padding-left: 25px;
+    padding-bottom: 25px;
+    padding-top: 15px;
 }
 
 .favorites-grid {
@@ -464,7 +501,7 @@ button .arrow {
 
 .recipe-title {
     font-family: 'Roboto';
-    font-size: 35px;
+    font-size: 29px;
     color: #521448;
     text-align: left;
     margin-bottom: 30px;
@@ -474,17 +511,16 @@ button .arrow {
 .recipe-grid {
     display: flex;
     justify-content: flex-start;
-    /* Вирівнюємо елементи до початку */
+    align-items: flex-start; /* Додаємо вирівнювання елементів по верху */
     flex-wrap: wrap;
-    gap: 25px;
-    /* Встановлюємо рівномірний відступ між фото */
-    padding: 0 30px;
-    /* Встановлюємо рівномірний відступ зліва і справа */
+    gap: 25px; /* Встановлюємо рівномірний відступ між фото */
+    padding: 0 30px; /* Встановлюємо рівномірний відступ зліва і справа */
 }
 
 .recipe-item {
-    width: 340px;
-    height: 420px;
+    width: 340px; /* Початкова ширина для великих екранів */
+    height: auto; /* Змінюємо висоту на автоматичну */
+    min-height: 420px; /* Встановлюємо мінімальну висоту */
 }
 
 .recipe-photo {
@@ -499,11 +535,9 @@ button .arrow {
 
 .recipe-icons {
     display: flex;
-    justify-content: flex-start;
-    /* Вирівнювання елементів на початку */
+    justify-content: flex-start; /* Вирівнювання елементів на початку */
     margin-left: 50px;
-    gap: 50px;
-    /* Встановлює відступ між іконками */
+    gap: 50px; /* Встановлює відступ між іконками */
     margin-bottom: 5px;
 }
 
@@ -511,14 +545,12 @@ button .arrow {
 .ingredients-icon {
     display: flex;
     align-items: center;
-    font-size: 14px;
-    /* Зменшений розмір тексту */
+    font-size: 14px; /* Зменшений розмір тексту */
     margin-right: 10px;
 }
 
 .icon {
-    width: 30px;
-    /* Розмір кожної іконки */
+    width: 30px; /* Розмір кожної іконки */
     height: 30px;
     margin-right: 5px;
     vertical-align: middle;
@@ -527,10 +559,58 @@ button .arrow {
 .recipe-name {
     font-size: 18px;
     font-family: 'Roboto';
-    font-weight: 300;
-    /* Тонший текст */
-    letter-spacing: 1px;
-    /* Відступи між літерами трохи більші */
+    font-weight: 300; /* Тонший текст */
+    letter-spacing: 1px; /* Відступи між літерами трохи більші */
     color: #2f002d;
+}
+
+/* Адаптивні стилі */
+@media (max-width: 1024px) {
+    .recipe-grid {
+        justify-content: center; /* Центрування елементів на менших екранах */
+    }
+
+    .recipe-item {
+        width: 280px; /* Зменшення ширини для екранів до 1024px */
+    }
+
+    .recipe-title {
+        font-size: 28px; /* Зменшення розміру заголовка */
+        padding-left: 20px; /* Зменшення відступу зліва */
+    }
+
+    .recipe-icons {
+        margin-left: 30px; /* Зменшення відступу зліва для іконок */
+        gap: 30px; /* Зменшення відступу між іконками */
+    }
+
+    .recipe-name {
+        font-size: 16px; /* Зменшення розміру шрифту назви рецепту */
+    }
+}
+
+@media (max-width: 768px) {
+    .recipe-grid {
+        padding: 0 10px; /* Зменшення бокового відступу */
+    }
+
+    .recipe-item {
+        width: 100%; /* Встановлення 100% ширини для малих екранів */
+        max-width: 340px; /* Максимальна ширина елемента */
+    }
+
+    .recipe-title {
+        font-size: 24px; /* Додаткове зменшення заголовка */
+        padding-left: 10px; /* Зменшення відступу зліва */
+    }
+
+    .recipe-icons {
+        margin-left: 20px; /* Зменшення відступу зліва для іконок */
+        gap: 20px; /* Зменшення відступу між іконками */
+    }
+
+    .recipe-name {
+        font-size: 14px; /* Зменшення розміру шрифту назви рецепту */
+    }
 }
 </style>
