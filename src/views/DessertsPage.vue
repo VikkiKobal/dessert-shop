@@ -42,10 +42,24 @@ export default {
     computed: {
         ...mapGetters(['getDesserts']),
         filteredDesserts() {
+            if (!this.getDesserts || this.getDesserts.length === 0) {
+                console.warn('No desserts available for filtering.')
+                return []
+            }
+
             const desserts = !this.selectedCategory
                 ? this.getDesserts
                 : this.getDesserts.filter((dessert) => dessert.category.includes(this.selectedCategory))
-            return desserts
+
+            const extractedDesserts = desserts.map((dessert) => ({
+                id: dessert.id,
+                category: dessert.category,
+                title: dessert.title,
+                url: dessert.url,
+                price: dessert.price,
+            }))
+
+            return extractedDesserts
         },
         paginatedDesserts() {
             const start = (this.currentPage - 1) * this.dessertsPerPage
@@ -75,9 +89,22 @@ export default {
             this.$router.push({ name: 'DessertInfoView', params: { id: dessertId } })
         },
     },
+    created() {
+        // Dispatch the action to load data from Firebase
+        this.$store
+            .dispatch('setDesserts')
+            .then(() => {
+                const desserts = this.getDesserts
+                if (!desserts || desserts.length === 0) {
+                    console.warn('No desserts data fetched.')
+                }
+            })
+            .catch((error) => {
+                console.error('Error fetching desserts:', error)
+            })
+    },
 }
 </script>
-
 
 <style>
 body {
@@ -112,6 +139,11 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
     margin-bottom: 20px;
+}
+
+.dessert-images :hover {
+    scale: 1.1;
+    transition: 0.5s all;
 }
 
 .dessert-item {

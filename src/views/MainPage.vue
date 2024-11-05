@@ -206,16 +206,37 @@ export default {
         ...mapGetters(['getDesserts']),
         dessertPhotos() {
             const desserts = this.getDesserts
+            const extractedDesserts = desserts.map((dessert) => ({
+                id: dessert.id,
+                category: dessert.category,
+                title: dessert.title,
+                url: dessert.url,
+                price: dessert.price,
+            }))
+
             return [
-                desserts.find((d) => d.id === 4).url,
-                desserts.find((d) => d.id === 10).url,
-                desserts.find((d) => d.id === 15).url,
-                desserts.find((d) => d.id === 7).url,
+                extractedDesserts.find((d) => d.id === 'nnPO9bG8Mz748OZf98nW').url,
+                extractedDesserts.find((d) => d.id === 'UZMKbylaTYjFNysszmY8').url,
+                extractedDesserts.find((d) => d.id === 'KTGIBxctFA9d42bwx9qH').url,
+                extractedDesserts.find((d) => d.id === 'GT6gzAkJ9ZagQdi5rfxa').url,
             ]
         },
         favoritePhotos() {
             const desserts = this.getDesserts
-            return [desserts[12].url, desserts[7].url, desserts[9].url, desserts[11].url, desserts[10].url]
+            const extractedDesserts = desserts.map((dessert) => ({
+                id: dessert.id,
+                category: dessert.category,
+                title: dessert.title,
+                url: dessert.url,
+                price: dessert.price,
+            }))
+            return [
+                extractedDesserts[0].url,
+                extractedDesserts[1].url,
+                extractedDesserts[2].url,
+                extractedDesserts[3].url,
+                extractedDesserts[4].url,
+            ]
         },
     },
 
@@ -223,6 +244,20 @@ export default {
         goToDesserts() {
             this.$router.push({ name: 'desserts' })
         },
+    },
+    created() {
+        // Dispatch the action to load data from Firebase
+        this.$store
+            .dispatch('setDesserts')
+            .then(() => {
+                const desserts = this.getDesserts
+                if (!desserts || desserts.length === 0) {
+                    console.warn('No desserts data fetched.')
+                }
+            })
+            .catch((error) => {
+                console.error('Error fetching desserts:', error)
+            })
     },
 }
 </script>
@@ -515,6 +550,11 @@ button .arrow {
     height: 100%;
     object-fit: cover;
     box-sizing: border-box; /* Ensure padding does not affect overall width */
+}
+
+.favorite-item :hover {
+    scale: 1.1;
+    transition: 0.5s all;
 }
 
 .recipe-container {

@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore/lite';
+import { getFirestore } from 'firebase/firestore';
 
 // Ваш конфігураційний об'єкт Firebase
 const firebaseConfig = {
@@ -12,7 +12,6 @@ const firebaseConfig = {
 };
 
 // Ініціалізація Firebase
-const app = initializeApp(firebaseConfig); // Ініціалізація Firebase App
-const db = getFirestore(app); // Отримання Firestore
+const app = initializeApp(firebaseConfig);
 
-export { db };
+export const database = getFirestore(app);
