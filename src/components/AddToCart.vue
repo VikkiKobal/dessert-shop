@@ -59,12 +59,11 @@ export default {
     color: white;
     font-size: 18px;
     font-family: 'Roboto';
-    padding: 10px 20px;
     border: none;
     border-radius: 30px;
     cursor: pointer;
     opacity: 0.85;
-    width: 270px;
+    width: 300px;
     height: 55px;
     position: relative; /* Positioning for the quantity */
 }

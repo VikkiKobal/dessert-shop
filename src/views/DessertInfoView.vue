@@ -16,8 +16,6 @@
     </div>
 </template>
 
-
-
 <script>
 import AddToCart from '@/components/AddToCart.vue'
 import { mapGetters } from 'vuex'
@@ -114,5 +112,60 @@ export default {
     color: black;
     font-family: 'Roboto';
     margin-right: 50px;
+}
+@media (max-width: 1024px) {
+    .dessert-content {
+        flex-direction: column; /* Стовпчик на менших екранах */
+        align-items: center; /* Центрувати вміст */
+        margin-left: 0; /* Прибираємо лівий відступ */
+        margin-top: 30px; /* Зменшуємо верхній відступ */
+    }
+
+    .dessert-image {
+        width: 100%; /* Ширина на 100% для зменшення */
+        height: auto; /* Автоматична висота */
+    }
+
+    .dessert-title {
+        font-size: 30px; /* Менший розмір заголовка */
+    }
+
+    .dessert-description,
+    .dessert-ingredients {
+        margin-right: 0; /* Прибираємо правий відступ */
+        text-align: center; /* Центруємо текст */
+    }
+}
+
+/* Адаптивність для екранів до 768px */
+@media (max-width: 768px) {
+    .dessert-title {
+        font-size: 28px; /* Ще менший розмір заголовка */
+    }
+
+    .dessert-price {
+        font-size: 25px; /* Зменшуємо ціну */
+    }
+}
+
+/* Адаптивність для екранів до 425px */
+@media (max-width: 425px) {
+    .dessert-title {
+        font-size: 24px; /* Зменшений розмір заголовка */
+    }
+
+    .dessert-price {
+        font-size: 22px; /* Зменшена ціна */
+    }
+
+    .dessert-description,
+    .dessert-ingredients {
+        font-size: 15px; /* Зменшений розмір тексту */
+    }
+
+    .dessert-image {
+        width: 100%; /* Ширина 100% на маленьких екранах */
+        height: auto; /* Автоматична висота */
+    }
 }
 </style>

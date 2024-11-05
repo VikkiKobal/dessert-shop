@@ -57,7 +57,6 @@ export default {
             email: '',
         }
     },
-
     methods: {
         submitForm() {
             console.log(`Запис на консультацію: ${this.name}, ${this.email}`)
@@ -93,20 +92,21 @@ export default {
 .footer-pictures {
     display: flex;
     flex-direction: row;
-    margin-right: 100px;
+    margin-right: 20px; /* Reduced margin for smaller screens */
 }
 
 .footer-image {
     width: 300px;
     margin: 5px;
-    height: 500px;
+    height: auto; /* Set height to auto for responsive images */
 }
 
 .footer-text {
     text-align: left;
     display: flex; /* Keep text and form aligned */
     flex-direction: column; /* Stack title, paragraph, and form */
-    margin-top: 50px;
+    margin-top: 70px; /* Збільшено для переміщення вниз */
+    margin-left: 50px; /* Додано для переміщення правіше */
 }
 
 .consultation-title {
@@ -188,5 +188,52 @@ form input {
 .icon:hover {
     transform: scale(1.1);
     color: #521448; /* Зміна кольору при наведенні */
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 1024px) {
+    .footer-content {
+        flex-direction: column; /* Stack content vertically */
+        align-items: center; /* Center align items */
+    }
+    .consultation {
+        flex-direction: column; /* Stack images and text vertically */
+        align-items: center; /* Center align items */
+    }
+    .footer-pictures {
+        margin-right: 0; /* Remove right margin for better spacing */
+    }
+    .footer-image {
+        width: 80%; /* Make images responsive */
+        max-width: 300px; /* Maximum width for images */
+    }
+}
+
+@media (max-width: 768px) {
+    .consultation-title {
+        font-size: 28px; /* Smaller title font */
+    }
+    footer p {
+        width: 100%; /* Full width for paragraph */
+    }
+    form input {
+        width: 90%; /* Responsive input width */
+    }
+    .submit-button {
+        width: 100%; /* Full width button */
+    }
+}
+
+@media (max-width: 425px) {
+    .consultation-title {
+        font-size: 24px; /* Even smaller title font */
+    }
+    .submit-button {
+        padding: 8px; /* Smaller padding */
+        font-size: 14px; /* Smaller button font */
+    }
+    .icon {
+        font-size: 20px; /* Smaller icons */
+    }
 }
 </style>
