@@ -320,11 +320,13 @@ h1 {
 /* Стилі для нового блоку */
 .info-section {
     text-align: center;
-    margin: 40px 0;
+    margin: 20px 0;
 }
 
 .features {
     display: flex;
+    margin-left: 80px;
+    margin-right: 80px;
     justify-content: space-between;
     flex-wrap: wrap;
     font-family: 'Roboto';

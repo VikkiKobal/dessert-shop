@@ -36,6 +36,8 @@ export default {
     background-color: rgb(204, 194, 204);
     padding: 30px 0;
     width: 100%;
+    background-size: cover; /* або contain, залежно від ваших потреб */
+    background-position: center; /* Вирівнювання по центру */
 }
 
 .navbar {
