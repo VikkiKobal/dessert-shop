@@ -270,33 +270,32 @@ export default {
     background: url('https://i.pinimg.com/564x/99/a6/d1/99a6d1d4ad5b873ada61d53166589974.jpg') no-repeat,
         url('https://i.pinimg.com/564x/78/d4/81/78d481cb18ca148ee39e9d4350508169.jpg') no-repeat,
         url('https://heymaca.ca/wp-content/uploads/2019/08/094A9918-1440x1939.jpg') no-repeat;
-    background-size: contain; /* Забезпечує збереження пропорцій зображень */
+    background-size: contain;
     background-position: left center, center center, right center;
     background-color: #f0f0f0;
     opacity: 0.85;
 }
 
-/* Адаптивні стилі для зменшення висоти на менших екранах */
 @media (max-width: 1024px) {
     .banner {
-        height: 80vh; /* Зменшення висоти банера */
-        background-size: contain; /* Пропорційне відображення */
+        height: 80vh;
+        background-size: contain;
     }
 }
 
 @media (max-width: 768px) {
     .banner {
-        height: 60vh; /* Ще більше зменшення висоти для мобільних екранів */
-        background-size: cover; /* Заповнення банера */
-        background-position: center; /* Центрування зображень */
+        height: 60vh;
+        background-size: cover;
+        background-position: center;
     }
 }
 
 @media (max-width: 480px) {
     .banner {
-        height: 50vh; /* Мінімальна висота для дуже маленьких екранів */
-        background-size: cover; /* Заповнення банера */
-        background-position: center; /* Центрування */
+        height: 50vh;
+        background-size: cover;
+        background-position: center;
     }
 }
 

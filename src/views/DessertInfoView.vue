@@ -4,8 +4,8 @@
             <img :src="dessert.url" alt="Dessert Image" class="dessert-image" />
             <div class="dessert-details">
                 <h1 class="dessert-title">{{ dessert.title }}</h1>
-                <p class="dessert-ingredients">Склад: {{ dessert.ingredients }}</p>
-                <p class="dessert-nutrition">Харчова цінність: {{ dessert.nutrition }}</p>
+                <p class="dessert-description"><strong>Опис десерту:</strong> {{ dessert.description }}</p>
+                <p class="dessert-ingredients"><strong>Інгредієнти:</strong> {{ dessert.ingredients }}</p>
                 <div class="divider"></div>
                 <div class="price-and-button">
                     <p class="dessert-price">{{ dessert.price }} UAH</p>
@@ -15,6 +15,8 @@
         </div>
     </div>
 </template>
+
+
 
 <script>
 import AddToCart from '@/components/AddToCart.vue'
@@ -80,13 +82,19 @@ export default {
     padding-bottom: 10px;
 }
 
-.dessert-ingredients,
-.dessert-nutrition {
-    font-size: 20px;
+.dessert-description {
+    font-size: 17px; /* Зменшуємо розмір шрифту */
     font-family: 'Roboto';
     color: #4b2348;
-    font-weight: bold;
-    margin: 10px 0;
+    margin-right: 50px;
+    margin-bottom: 10px;
+}
+
+.dessert-ingredients {
+    font-size: 17px; /* Залишаємо цей розмір без змін */
+    font-family: 'Roboto';
+    color: #4b2348;
+    margin-right: 50px;
 }
 
 .divider {

@@ -47,6 +47,9 @@ const store = createStore({
                 item.quantity--;
             }
         },
+        clearCart(state) {
+            state.cartItems = [];
+        },
         SET_DESSERTS(state, items) {
             state.desserts = items;
         }

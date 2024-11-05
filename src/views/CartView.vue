@@ -315,71 +315,69 @@ input[type='radio'] {
     }
 }
 
-/* Стилі для екранів шириною до 768px */
 @media (max-width: 768px) {
     .cart-item {
-        flex-direction: column; /* Вертикальне вирівнювання елементів замовлення */
-        align-items: center; /* Центрування зображення і деталей десерту */
+        flex-direction: column;
+        align-items: center;
     }
 
     .dessert-image {
-        width: 100%; /* Збільшуємо ширину зображення */
-        height: auto; /* Автоматичне висота для збереження пропорцій */
+        width: 100%;
+        height: auto;
     }
 
     .dessert-details {
-        text-align: center; /* Центруємо текст */
-        margin-left: 0; /* Прибираємо лівий відступ */
+        text-align: center;
+        margin-left: 0;
     }
 
     input[type='text'],
     input[type='tel'],
     input[type='email'],
     .flatpickr-input {
-        font-size: 14px; /* Зменшення шрифту для менших екранів */
+        font-size: 14px;
     }
 
     button {
-        font-size: 16px; /* Зменшення шрифту для кнопок */
+        font-size: 16px;
     }
 
     .empty-cart-icon {
-        width: 150px; /* Зменшуємо розмір іконки для порожнього кошика */
+        width: 150px;
         height: 150px;
     }
 
     .empty-cart-text {
-        font-size: 18px; /* Зменшення шрифту для тексту */
+        font-size: 18px;
     }
 
     .quantity-button {
-        width: 30px; /* Зменшення кнопок для зміни кількості */
+        width: 30px;
         height: 30px;
     }
 }
 
-/* Стилі для екранів шириною до 480px */
 @media (max-width: 480px) {
     h1 {
-        font-size: 24px; /* Зменшення шрифту заголовка */
+        font-size: 24px;
     }
 
     p {
-        font-size: 16px; /* Зменшення шрифту абзаців */
+        font-size: 16px;
     }
 
     .form-group,
     .form-row {
-        flex-direction: column; /* Вертикальне вирівнювання елементів форми */
-        width: 100%; /* Вирівнювання до повної ширини */
+        flex-direction: column;
+        width: 100%;
     }
 
     button {
-        width: 100%; /* Кнопки на всю ширину */
+        width: 100%;
     }
 
     .total {
-        font-size: 1em; /* Зменшення шрифту для підсумку */
+        font-size: 1em;
     }
 }
 </style>
