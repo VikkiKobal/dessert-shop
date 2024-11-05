@@ -296,4 +296,90 @@ input[type='radio'] {
     width: 40px;
     height: 40px;
 }
+
+/* Стилі для екранів шириною до 1200px */
+@media (max-width: 1200px) {
+    .form-container {
+        flex-direction: column; /* Вирівнювання елементів вертикально */
+        align-items: center; /* Центрування елементів */
+        margin-left: 0; /* Прибираємо лівий відступ */
+    }
+
+    .contact-form {
+        width: 90%; /* Збільшуємо ширину для менших екранів */
+        margin-bottom: 20px; /* Додаємо відступ знизу */
+    }
+
+    .cart {
+        width: 90%; /* Збільшуємо ширину для менших екранів */
+    }
+}
+
+/* Стилі для екранів шириною до 768px */
+@media (max-width: 768px) {
+    .cart-item {
+        flex-direction: column; /* Вертикальне вирівнювання елементів замовлення */
+        align-items: center; /* Центрування зображення і деталей десерту */
+    }
+
+    .dessert-image {
+        width: 100%; /* Збільшуємо ширину зображення */
+        height: auto; /* Автоматичне висота для збереження пропорцій */
+    }
+
+    .dessert-details {
+        text-align: center; /* Центруємо текст */
+        margin-left: 0; /* Прибираємо лівий відступ */
+    }
+
+    input[type='text'],
+    input[type='tel'],
+    input[type='email'],
+    .flatpickr-input {
+        font-size: 14px; /* Зменшення шрифту для менших екранів */
+    }
+
+    button {
+        font-size: 16px; /* Зменшення шрифту для кнопок */
+    }
+
+    .empty-cart-icon {
+        width: 150px; /* Зменшуємо розмір іконки для порожнього кошика */
+        height: 150px;
+    }
+
+    .empty-cart-text {
+        font-size: 18px; /* Зменшення шрифту для тексту */
+    }
+
+    .quantity-button {
+        width: 30px; /* Зменшення кнопок для зміни кількості */
+        height: 30px;
+    }
+}
+
+/* Стилі для екранів шириною до 480px */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 24px; /* Зменшення шрифту заголовка */
+    }
+
+    p {
+        font-size: 16px; /* Зменшення шрифту абзаців */
+    }
+
+    .form-group,
+    .form-row {
+        flex-direction: column; /* Вертикальне вирівнювання елементів форми */
+        width: 100%; /* Вирівнювання до повної ширини */
+    }
+
+    button {
+        width: 100%; /* Кнопки на всю ширину */
+    }
+
+    .total {
+        font-size: 1em; /* Зменшення шрифту для підсумку */
+    }
+}
 </style>

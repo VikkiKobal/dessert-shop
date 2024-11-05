@@ -235,10 +235,34 @@ export default {
     background: url('https://i.pinimg.com/564x/99/a6/d1/99a6d1d4ad5b873ada61d53166589974.jpg') no-repeat,
         url('https://i.pinimg.com/564x/78/d4/81/78d481cb18ca148ee39e9d4350508169.jpg') no-repeat,
         url('https://heymaca.ca/wp-content/uploads/2019/08/094A9918-1440x1939.jpg') no-repeat;
-    background-size: 33.1% 100%;
+    background-size: contain; /* Забезпечує збереження пропорцій зображень */
     background-position: left center, center center, right center;
     background-color: #f0f0f0;
     opacity: 0.85;
+}
+
+/* Адаптивні стилі для зменшення висоти на менших екранах */
+@media (max-width: 1024px) {
+    .banner {
+        height: 80vh; /* Зменшення висоти банера */
+        background-size: contain; /* Пропорційне відображення */
+    }
+}
+
+@media (max-width: 768px) {
+    .banner {
+        height: 60vh; /* Ще більше зменшення висоти для мобільних екранів */
+        background-size: cover; /* Заповнення банера */
+        background-position: center; /* Центрування зображень */
+    }
+}
+
+@media (max-width: 480px) {
+    .banner {
+        height: 50vh; /* Мінімальна висота для дуже маленьких екранів */
+        background-size: cover; /* Заповнення банера */
+        background-position: center; /* Центрування */
+    }
 }
 
 .banner-content {
@@ -471,28 +495,26 @@ button .arrow {
 
 .favorites-grid {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     /* Вирівнюємо елементи на початку */
     flex-wrap: wrap;
     gap: 10px;
     /* Додаємо відступ між елементами */
+    padding-left: 20px;
 }
 
 .favorite-item {
     width: 240px;
     height: 340px;
-    margin: 0 25px 15px;
+    margin: 0 20px 15px;
     /* Встановлюємо однакові відступи зліва і справа по 30px, 15px знизу */
 }
 
 .favorite-photo {
     width: 100%;
-    /* Змінюємо ширину на 100%, щоб фото заповнювало контейнер */
     height: 100%;
-    /* Змінюємо висоту на 100% */
     object-fit: cover;
-    margin-bottom: 10px;
-    /* Додаємо відступ знизу між фото */
+    box-sizing: border-box; /* Ensure padding does not affect overall width */
 }
 
 .recipe-container {
@@ -510,11 +532,9 @@ button .arrow {
 
 .recipe-grid {
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start; /* Додаємо вирівнювання елементів по верху */
+    justify-content: center;
     flex-wrap: wrap;
-    gap: 25px; /* Встановлюємо рівномірний відступ між фото */
-    padding: 0 30px; /* Встановлюємо рівномірний відступ зліва і справа */
+    gap: 20px; /* Встановлюємо рівномірний відступ між фото */
 }
 
 .recipe-item {
@@ -525,7 +545,7 @@ button .arrow {
 
 .recipe-photo {
     width: 100%;
-    height: 480px;
+    height: 420px;
     object-fit: cover;
 }
 

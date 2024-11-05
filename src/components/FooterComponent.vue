@@ -58,7 +58,7 @@ export default {
 .footer-component {
     background-color: rgba(227, 180, 219, 0.1);
     padding: 20px;
-    margin-top: 200px;
+    margin-top: 90px;
 }
 
 .footer-content {

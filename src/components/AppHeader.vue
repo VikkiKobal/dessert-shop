@@ -17,13 +17,12 @@
     </header>
 </template>
 
-
 <script>
 export default {
     name: 'AppHeader',
     methods: {
         openCart() {
-            this.$router.push('/cart') // або інший спосіб відкриття кошика
+            this.$router.push('/cart')
         },
     },
 }
@@ -64,7 +63,7 @@ export default {
 .nav-links a {
     margin-left: 10px;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 22px;
     color: rgba(47, 0, 45, 0.85);
     font-weight: bold;
     font-family: 'Roboto';
@@ -76,25 +75,74 @@ export default {
 }
 
 .cart-icon {
-    position: relative; /* Встановлюємо відносне позиціонування */
+    position: relative;
     cursor: pointer;
 }
 
 .cart-count {
-    position: absolute; /* Встановлюємо абсолютне позиціонування */
-    top: -10px; /* Регулюємо вертикальне позиціонування */
-    right: -10px; /* Регулюємо горизонтальне позиціонування */
-    background-color: #60456b; /* Фіолетовий колір */
-    color: white; /* Білий колір тексту */
-    border: 2px solid white; /* Білий бордер */
-    border-radius: 50%; /* Робимо кружечком */
-    width: 30px; /* Ширина кружечка */
-    height: 30px; /* Висота кружечка */
-    display: flex; /* Вирівнюємо текст по центру */
-    align-items: center; /* Центруємо по вертикалі */
-    justify-content: center; /* Центруємо по горизонталі */
-    font-size: 16px; /* Розмір шрифту */
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #60456b;
+    color: white;
+    border: 2px solid white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@600&display=swap');
+/* Адаптивна верстка */
+@media (max-width: 1024px) {
+    .icon {
+        width: 40px; /* Зменшений розмір іконки */
+        height: 35px;
+    }
+
+    .nav-links a {
+        font-size: 22px; /* Зменшений розмір шрифту */
+    }
+
+    .navbar {
+        padding: 0 10px; /* Зменшуємо відступи */
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .icon {
+        width: 30px; /* Ще менший розмір іконки */
+        height: 30px;
+    }
+
+    .nav-links a {
+        font-size: 20px; /* Ще зменшений розмір шрифту */
+    }
+}
+
+@media (max-width: 480px) {
+    .icon {
+        width: 25px;
+        height: 25px;
+    }
+
+    .nav-links a {
+        font-size: 18px;
+    }
+}
 </style>

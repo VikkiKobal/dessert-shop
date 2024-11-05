@@ -126,6 +126,26 @@ img {
 .pagination {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+}
+@media (max-width: 1024px) {
+    .dessert-item {
+        flex: 1 1 calc(25% - 20px); /* Чотири елементи в ряд для середніх екранів */
+        max-width: calc(25% - 20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .dessert-item {
+        flex: 1 1 100%; /* Один елемент в ряд для малих екранів */
+        max-width: 100%;
+        display: flex;
+        flex-direction: column; /* Вирівнюємо елементи вертикально */
+        align-items: center; /* Центруємо зображення та кнопки */
+    }
+
+    .button-container {
+        flex-direction: column; /* Кнопки в стовпчик для малих екранів */
+        align-items: center;
+    }
 }
 </style>
