@@ -61,12 +61,38 @@ export default {
 }
 
 .nav-links a {
-    margin-left: 10px;
+    position: relative;
     text-decoration: none;
     font-size: 22px;
     color: rgba(47, 0, 45, 0.85);
     font-weight: bold;
     font-family: 'Roboto';
+    padding: 4px 0;
+    transition: color 0.3s;
+}
+
+/* Псевдоелемент для анімації лінії під кнопкою */
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background-color: rgba(47, 0, 45, 0.85);
+    transform: scaleX(0); /* Початковий стан (лінія схована) */
+    transform-origin: 0 50%;
+    transition: transform 0.5s ease;
+}
+
+/* Ефект при наведенні: лінія під кнопкою розгортається */
+.nav-links a:hover::before {
+    transform: scaleX(1); /* Розгортання лінії на всю ширину */
+}
+
+/* Зміна кольору тексту при наведенні */
+.nav-links a:hover {
+    color: rgba(47, 0, 45, 1); /* Робимо текст яскравішим при наведенні */
 }
 
 .icon {

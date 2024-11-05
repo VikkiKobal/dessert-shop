@@ -32,6 +32,20 @@
                 </iframe>
             </div>
         </div>
+        <div class="footer-bottom">
+            <span class="copyright">Усі права захищено © 2024</span>
+            <div class="social-icons">
+                <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram icon"></i>
+                </a>
+                <a href="https://www.pinterest.com" target="_blank" aria-label="Pinterest">
+                    <i class="fab fa-pinterest icon"></i>
+                </a>
+                <a href="https://t.me/yourchannel" target="_blank" aria-label="Telegram">
+                    <i class="fab fa-telegram icon"></i>
+                </a>
+            </div>
+        </div>
     </footer>
 </template>
 
@@ -55,6 +69,8 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
 .footer-component {
     background-color: rgba(227, 180, 219, 0.1);
     padding: 20px;
@@ -141,6 +157,36 @@ form input {
     margin-top: 20px;
     width: 100%;
     display: flex;
-    justify-content: center; /* Center the map */
+    justify-content: center;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 2px;
+    margin-top: 12px;
+}
+
+.footer-bottom .copyright {
+    font-family: 'Roboto';
+    font-size: 16px;
+    color: rgba(47, 0, 45, 0.85);
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.icon {
+    font-size: 24px;
+    color: rgba(47, 0, 45, 0.85);
+    transition: transform 0.3s, color 0.3s;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+    color: #521448; /* Зміна кольору при наведенні */
 }
 </style>
