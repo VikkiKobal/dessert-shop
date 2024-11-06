@@ -90,7 +90,6 @@ export default {
         },
     },
     created() {
-        // Dispatch the action to load data from Firebase
         this.$store
             .dispatch('setDesserts')
             .then(() => {
@@ -161,22 +160,22 @@ img {
 }
 @media (max-width: 1024px) {
     .dessert-item {
-        flex: 1 1 calc(25% - 20px); /* Чотири елементи в ряд для середніх екранів */
+        flex: 1 1 calc(25% - 20px);
         max-width: calc(25% - 20px);
     }
 }
 
 @media (max-width: 768px) {
     .dessert-item {
-        flex: 1 1 100%; /* Один елемент в ряд для малих екранів */
+        flex: 1 1 100%;
         max-width: 100%;
         display: flex;
-        flex-direction: column; /* Вирівнюємо елементи вертикально */
-        align-items: center; /* Центруємо зображення та кнопки */
+        flex-direction: column;
+        align-items: center;
     }
 
     .button-container {
-        flex-direction: column; /* Кнопки в стовпчик для малих екранів */
+        flex-direction: column;
         align-items: center;
     }
 }

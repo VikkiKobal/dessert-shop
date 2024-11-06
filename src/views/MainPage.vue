@@ -9,7 +9,6 @@
                 <MainButton class="makeOrderButton" buttonText="Оформити замовлення" />
             </div>
         </div>
-
         <!-- Додатковий вміст -->
         <div class="info-section">
             <ul class="features">
@@ -43,7 +42,6 @@
                 </li>
             </ul>
         </div>
-
         <!-- Асортимент десертів -->
         <div class="products-section">
             <h2 class="section-title">Наш асортимент</h2>
@@ -66,11 +64,9 @@
                 </div>
             </div>
         </div>
-
         <!-- Кнопка замовлення після асортименту -->
         <MainButton buttonText="Переглянути весь асортимент" :onClick="goToDesserts" class="view-catalog-button" />
     </div>
-
     <div>
         <!-- Фіолетовий контейнер для відгуків -->
         <div class="purple-container">
@@ -100,7 +96,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Рецепти -->
         <div class="recipe-container">
             <h2 class="recipe-title">Книга рецептів від засновниці</h2>
@@ -246,7 +241,6 @@ export default {
         },
     },
     created() {
-        // Dispatch the action to load data from Firebase
         this.$store
             .dispatch('setDesserts')
             .then(() => {
@@ -317,7 +311,6 @@ h1 {
     margin-top: 25px;
 }
 
-/* Стилі для нового блоку */
 .info-section {
     text-align: center;
     margin: 20px 0;
@@ -344,9 +337,7 @@ h1 {
 .features li img {
     margin-right: 25px;
     width: 70px;
-    /* Встановлення ширини іконки */
     height: 75px;
-    /* Встановлення висоти іконки */
 }
 
 .features li p {
@@ -370,34 +361,34 @@ h1 {
 
 .products-section {
     margin: 40px 0;
-    font-size: 20px; /* Загальний розмір шрифту */
+    font-size: 20px;
 }
 
 .products {
     display: flex;
-    justify-content: space-between; /* Для рівномірного розподілу елементів */
-    flex-wrap: wrap; /* Дозволяє перенесення елементів на новий рядок */
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .product {
     text-align: center;
-    flex: 1 1 220px; /* Гнучкий розмір з мінімальною шириною 220px */
-    margin: 10px; /* Відступ між елементами */
+    flex: 1 1 220px;
+    margin: 10px;
 }
 
 .product button {
-    width: 325px; /* Кнопки займають 100% ширини продукту */
+    width: 325px;
     height: 45px;
     background-color: #dde2d0;
     border: 1px solid rgba(75, 35, 72, 0.3);
     font-family: 'Roboto';
-    font-size: 20px; /* Розмір шрифту кнопки */
+    font-size: 20px;
     color: #4b2348;
     cursor: pointer;
 }
 
 button .arrow {
-    margin-left: 20px; /* Відступ між текстом та стрілкою */
+    margin-left: 20px;
 }
 
 .product img {
@@ -407,105 +398,79 @@ button .arrow {
 }
 
 .view-catalog-button {
-    width: 320px; /* Ширина кнопки перегляду каталогу */
+    width: 320px;
 }
 
-/* Медіа-запити для менших комп'ютерних екранів */
 @media (max-width: 1024px) {
     .products {
-        justify-content: center; /* Центрування елементів на менших екранах */
+        justify-content: center;
     }
 
     .product {
-        flex: 1 1 180px; /* Зменшення мінімального розміру до 180px */
+        flex: 1 1 180px;
     }
 
     .product button {
-        font-size: 18px; /* Зменшення розміру шрифту кнопки */
+        font-size: 18px;
     }
 
     .products-section {
-        font-size: 18px; /* Зменшення загального розміру шрифту */
+        font-size: 18px;
     }
 }
 
 @media (max-width: 768px) {
     .products-section {
-        font-size: 16px; /* Додаткове зменшення шрифту на малих екранах */
+        font-size: 16px;
     }
 
     .product button {
-        font-size: 16px; /* Зменшення розміру шрифту кнопки */
+        font-size: 16px;
     }
 }
 
 .purple-container {
     box-sizing: border-box;
-    /* Includes padding and border in the total width and height */
     width: 100%;
-    /* Width of the container */
     height: 290px;
-    /* Fixed height */
     background-color: rgba(82, 20, 72, 0.15);
-    /* Purple background */
     margin-top: 90px;
-    /* Increased top margin */
     color: white;
-    /* Text color */
     display: flex;
-    /* Use flexbox for alignment */
     flex-direction: column;
-    /* Vertical alignment */
     align-items: center;
-    /* Center content horizontally */
     padding: 0 20px;
-    /* Left and right padding, no top padding */
 }
 
 .review-container {
     display: flex;
     flex-wrap: wrap;
-    /* Дозволяємо переноси елементів */
     justify-content: center;
-    /* Центруємо, щоб зменшити простір */
     gap: 10px;
-    /* Встановлюємо простір між блоками відгуків */
     margin-top: 40px;
-    /* Відступ зверху, щоб розділити заголовок і блоки */
 }
 
 .review-title {
     margin: 0;
-    /* Видаляємо зайві відступи */
     font-family: 'Roboto';
-    /* Шрифт заголовка */
     font-size: 29px;
-    /* Розмір шрифту заголовка */
     text-align: left;
-    /* Вирівнювання тексту по лівому краю */
     color: rgba(47, 0, 45, 0.85);
-    /* Колір заголовка */
     padding-top: 40px;
-    /* Відступ зверху */
     padding-left: 10px;
-    /* Відступ зліва */
     align-self: flex-start;
-    /* Вирівнювання заголовка по лівому краю контейнера */
 }
 
 .review-container > div {
     margin: 0 5px;
-    /* Зменшуємо зовнішній відступ між блоками */
 }
 
 .review-container > :first-child {
     margin-left: 0;
-    /* Лівий блок без зсуву */
 }
 
 .review-container > :last-child {
     margin-right: 0;
-    /* Правий блок без зсуву */
 }
 
 .favorites-container {
@@ -515,7 +480,6 @@ button .arrow {
     margin: 20px auto;
     margin-top: 400px;
     padding-top: 10px;
-    /* Додаємо верхній внутрішній відступ */
 }
 
 .favorites-title {
@@ -523,7 +487,6 @@ button .arrow {
     font-size: 29px;
     color: #521448;
     text-align: left;
-    /* Вирівнюємо заголовок зліва */
     padding-left: 25px;
     padding-bottom: 25px;
     padding-top: 15px;
@@ -532,10 +495,8 @@ button .arrow {
 .favorites-grid {
     display: flex;
     justify-content: center;
-    /* Вирівнюємо елементи на початку */
     flex-wrap: wrap;
     gap: 10px;
-    /* Додаємо відступ між елементами */
     padding-left: 20px;
 }
 
@@ -543,14 +504,13 @@ button .arrow {
     width: 240px;
     height: 340px;
     margin: 0 20px 15px;
-    /* Встановлюємо однакові відступи зліва і справа по 30px, 15px знизу */
 }
 
 .favorite-photo {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    box-sizing: border-box; /* Ensure padding does not affect overall width */
+    box-sizing: border-box;
 }
 
 .favorite-item :hover {
@@ -575,13 +535,13 @@ button .arrow {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 20px; /* Встановлюємо рівномірний відступ між фото */
+    gap: 20px;
 }
 
 .recipe-item {
-    width: 340px; /* Початкова ширина для великих екранів */
-    height: auto; /* Змінюємо висоту на автоматичну */
-    min-height: 420px; /* Встановлюємо мінімальну висоту */
+    width: 340px;
+    height: auto;
+    min-height: 420px;
 }
 
 .recipe-photo {
@@ -596,9 +556,9 @@ button .arrow {
 
 .recipe-icons {
     display: flex;
-    justify-content: flex-start; /* Вирівнювання елементів на початку */
+    justify-content: flex-start;
     margin-left: 50px;
-    gap: 50px; /* Встановлює відступ між іконками */
+    gap: 50px;
     margin-bottom: 5px;
 }
 
@@ -606,12 +566,12 @@ button .arrow {
 .ingredients-icon {
     display: flex;
     align-items: center;
-    font-size: 14px; /* Зменшений розмір тексту */
+    font-size: 14px;
     margin-right: 10px;
 }
 
 .icon {
-    width: 30px; /* Розмір кожної іконки */
+    width: 30px;
     height: 30px;
     margin-right: 5px;
     vertical-align: middle;
@@ -620,58 +580,57 @@ button .arrow {
 .recipe-name {
     font-size: 18px;
     font-family: 'Roboto';
-    font-weight: 300; /* Тонший текст */
-    letter-spacing: 1px; /* Відступи між літерами трохи більші */
+    font-weight: 300;
+    letter-spacing: 1px;
     color: #2f002d;
 }
 
-/* Адаптивні стилі */
 @media (max-width: 1024px) {
     .recipe-grid {
-        justify-content: center; /* Центрування елементів на менших екранах */
+        justify-content: center;
     }
 
     .recipe-item {
-        width: 280px; /* Зменшення ширини для екранів до 1024px */
+        width: 280px;
     }
 
     .recipe-title {
-        font-size: 28px; /* Зменшення розміру заголовка */
-        padding-left: 20px; /* Зменшення відступу зліва */
+        font-size: 28px;
+        padding-left: 20px;
     }
 
     .recipe-icons {
-        margin-left: 30px; /* Зменшення відступу зліва для іконок */
-        gap: 30px; /* Зменшення відступу між іконками */
+        margin-left: 30px;
+        gap: 30px;
     }
 
     .recipe-name {
-        font-size: 16px; /* Зменшення розміру шрифту назви рецепту */
+        font-size: 16px;
     }
 }
 
 @media (max-width: 768px) {
     .recipe-grid {
-        padding: 0 10px; /* Зменшення бокового відступу */
+        padding: 0 10px;
     }
 
     .recipe-item {
-        width: 100%; /* Встановлення 100% ширини для малих екранів */
-        max-width: 340px; /* Максимальна ширина елемента */
+        width: 100%;
+        max-width: 340px;
     }
 
     .recipe-title {
-        font-size: 24px; /* Додаткове зменшення заголовка */
-        padding-left: 10px; /* Зменшення відступу зліва */
+        font-size: 24px;
+        padding-left: 10px;
     }
 
     .recipe-icons {
-        margin-left: 20px; /* Зменшення відступу зліва для іконок */
-        gap: 20px; /* Зменшення відступу між іконками */
+        margin-left: 20px;
+        gap: 20px;
     }
 
     .recipe-name {
-        font-size: 14px; /* Зменшення розміру шрифту назви рецепту */
+        font-size: 14px;
     }
 }
 </style>

@@ -106,7 +106,6 @@ export default {
     methods: {
         submitForm() {
             console.log(this.form)
-            // Додати логіку для обробки форми
             this.form = {
                 fullName: '',
                 phone: '',
@@ -119,14 +118,14 @@ export default {
             return item.price * item.quantity
         },
         removeFromCart(id) {
-            this.$store.commit('removeFromCart', id) // Додати мутацію для видалення елемента
+            this.$store.commit('removeFromCart', id)
         },
 
         increaseQuantity(id) {
-            this.$store.commit('increaseQuantity', id) // Додати мутацію для збільшення кількості
+            this.$store.commit('increaseQuantity', id)
         },
         decreaseQuantity(id) {
-            this.$store.commit('decreaseQuantity', id) // Додати мутацію для зменшення кількості
+            this.$store.commit('decreaseQuantity', id)
         },
     },
 }
@@ -142,18 +141,18 @@ export default {
 }
 
 .dessert-details {
-    text-align: left; /* Вирівнювання тексту по лівому краю */
+    text-align: left;
     margin-left: 20px;
 }
 
 .dessert-details h3 {
-    margin: 10px 0; /* Відстань під назвою товару */
+    margin: 10px 0;
 }
 
 .dessert-details p:nth-of-type(1),
 .dessert-details p:nth-of-type(2),
 .dessert-details p:nth-of-type(3) {
-    margin-bottom: 3px; /* Зменшення відстані між цими елементами */
+    margin-bottom: 3px;
 }
 
 .contact-form {
@@ -164,20 +163,19 @@ export default {
 }
 
 .cart {
-    width: 50%; /* Збільшення ширини контейнера кошика */
-    margin-left: 100px; /* Зменшення лівого відступу для переміщення правіше */
-    max-height: 800px; /* Додати максимальну висоту для прокручування */
-    overflow-y: auto; /* Додати прокручування для вертикальної осі */
+    width: 50%;
+    margin-left: 100px;
+    max-height: 800px;
+    overflow-y: auto;
 }
 
-/* Новий стиль для контейнера з товарами */
 .cart-items-container {
-    max-height: 450px; /* Висота контейнера з замовленням */
-    overflow-y: auto; /* Додати прокрутку вертикально */
-    background-color: rgba(227, 180, 219, 0.1); /* Зміна кольору фону */
-    border: 1px solid rgba(227, 180, 219, 0.5); /* Обрамлення */
-    border-radius: 10px; /* Закруглення кутів */
-    padding: 10px; /* Внутрішні відступи */
+    max-height: 450px;
+    overflow-y: auto;
+    background-color: rgba(227, 180, 219, 0.1);
+    border: 1px solid rgba(227, 180, 219, 0.5);
+    border-radius: 10px;
+    padding: 10px;
 }
 
 h1 {
@@ -192,7 +190,6 @@ p {
     font-size: 20px;
 }
 
-/* Інші стилі залишаються без змін */
 .form-content {
     display: flex;
     flex-direction: column;
@@ -297,21 +294,20 @@ input[type='radio'] {
     height: 40px;
 }
 
-/* Стилі для екранів шириною до 1200px */
 @media (max-width: 1200px) {
     .form-container {
-        flex-direction: column; /* Вирівнювання елементів вертикально */
-        align-items: center; /* Центрування елементів */
-        margin-left: 0; /* Прибираємо лівий відступ */
+        flex-direction: column;
+        align-items: center;
+        margin-left: 0;
     }
 
     .contact-form {
-        width: 90%; /* Збільшуємо ширину для менших екранів */
-        margin-bottom: 20px; /* Додаємо відступ знизу */
+        width: 90%;
+        margin-bottom: 20px;
     }
 
     .cart {
-        width: 90%; /* Збільшуємо ширину для менших екранів */
+        width: 90%;
     }
 }
 

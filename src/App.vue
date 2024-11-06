@@ -5,7 +5,6 @@
         <v-container>
             <router-view />
             <CartView v-if="isCartVisible" />
-            <!-- Тут кошик має з'явитися, коли isCartVisible === true -->
         </v-container>
     </v-app>
 </template>
@@ -23,12 +22,12 @@ export default {
     },
     data() {
         return {
-            isCartVisible: false, // Стан видимості кошика
+            isCartVisible: false,
         }
     },
     methods: {
         toggleCart() {
-            this.isCartVisible = !this.isCartVisible // Перемикаємо видимість кошика
+            this.isCartVisible = !this.isCartVisible
         },
     },
 }

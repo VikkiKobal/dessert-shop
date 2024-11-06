@@ -41,14 +41,13 @@ class DbOperations {
         });
     }
 
-    // Метод для додавання кількох десертів
     addItems(items) {
         const promises = items.map(item => this.addItem(item));
         return Promise.all(promises)
             .then(() => true)
             .catch(error => {
                 console.error("Помилка при додаванні десертів:", error);
-                throw error; // повторно викинути помилку
+                throw error;
             });
     }
 

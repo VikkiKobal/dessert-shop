@@ -1,7 +1,7 @@
 import { createVuetify } from 'vuetify';
-import 'vuetify/styles'; // імпорт стилів Vuetify
-import '@mdi/font/css/materialdesignicons.css'; // імпорт іконок MDI
-import 'material-design-icons-iconfont/dist/material-design-icons.css'; // імпорт матеріальних іконок
+import 'vuetify/styles';
+import '@mdi/font/css/materialdesignicons.css';
+import 'material-design-icons-iconfont/dist/material-design-icons.css';
 
 const vuetify = createVuetify();
 

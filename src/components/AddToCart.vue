@@ -27,21 +27,21 @@ export default {
     },
     data() {
         return {
-            quantity: 1, // Default quantity
+            quantity: 1,
         }
     },
     methods: {
         handleClick() {
             if (this.onClick) {
-                this.onClick(this.quantity) // Pass quantity to onClick handler
+                this.onClick(this.quantity)
             }
         },
         incrementQuantity() {
-            this.quantity++ // Increase quantity by 1
+            this.quantity++
         },
         decrementQuantity() {
             if (this.quantity > 1) {
-                this.quantity-- // Decrease quantity by 1 if greater than 1
+                this.quantity--
             }
         },
     },
@@ -65,7 +65,7 @@ export default {
     opacity: 0.85;
     width: 300px;
     height: 55px;
-    position: relative; /* Positioning for the quantity */
+    position: relative;
 }
 
 .main-button:hover {
@@ -73,25 +73,25 @@ export default {
 }
 
 .quantity {
-    background: rgba(255, 255, 255, 0.8); /* Background for quantity */
-    border-radius: 50%; /* Make quantity circular */
-    width: 40px; /* Fixed width for circular shape */
-    height: 40px; /* Fixed height for circular shape */
-    display: flex; /* Use flexbox to center text */
-    align-items: center; /* Center vertically */
-    justify-content: center; /* Center horizontally */
-    margin-left: 10px; /* Space between button text and quantity */
-    position: absolute; /* Position inside button */
-    top: 7px; /* Adjust as needed */
-    right: 10px; /* Adjust as needed */
-    font-size: 14px; /* Adjust font size as needed */
-    color: #2f002d; /* Color for the text */
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    position: absolute;
+    top: 7px;
+    right: 10px;
+    font-size: 14px;
+    color: #2f002d;
 }
 
 .quantity-controls {
     display: flex;
     align-items: center;
-    margin-left: 10px; /* Space between button and controls */
+    margin-left: 10px;
 }
 
 .control-button {
@@ -103,7 +103,7 @@ export default {
     border: none;
     border-radius: 50%;
     cursor: pointer;
-    margin: 0 5px; /* Space between buttons */
+    margin: 0 5px;
     opacity: 0.85;
 }
 
@@ -112,7 +112,7 @@ export default {
 }
 
 .quantity-display {
-    font-size: 18px; /* Font size for quantity display */
-    color: #2f002d; /* Color for quantity */
+    font-size: 18px;
+    color: #2f002d;
 }
 </style>

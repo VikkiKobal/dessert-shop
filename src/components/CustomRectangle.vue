@@ -36,25 +36,25 @@ export default {
 }
 
 .client-photo {
-    width: 190px; /* Width of the image */
-    height: 210px; /* Height of the image */
-    border-radius: 50%; /* Makes the image circular */
-    object-fit: cover; /* Ensures the image covers the entire area */
-    margin-bottom: 10px; /* Space below the image */
+    width: 190px;
+    height: 210px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
 }
 
 .client-feedback {
-    font-family: 'Roboto'; /* Set the font to Alegreya Sans SC */
-    font-size: 16px; /* Set the font size to 15px */
+    font-family: 'Roboto';
+    font-size: 16px;
     color: #333;
 }
 
 .rating {
-    margin-top: 10px; /* Adds space between feedback and rating */
+    margin-top: 10px;
 }
 
 .star {
-    color: gold; /* Set color for stars */
-    font-size: 30px; /* Adjust size as necessary */
+    color: gold;
+    font-size: 30px;
 }
 </style>

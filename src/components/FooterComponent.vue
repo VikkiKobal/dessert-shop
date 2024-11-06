@@ -79,12 +79,12 @@ export default {
 .footer-content {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align items to the left */
+    align-items: flex-start;
 }
 
 .consultation {
     display: flex;
-    flex-direction: row; /* Keep image and text/form side by side */
+    flex-direction: row;
     max-width: 800px;
     width: 100%;
 }
@@ -92,21 +92,21 @@ export default {
 .footer-pictures {
     display: flex;
     flex-direction: row;
-    margin-right: 20px; /* Reduced margin for smaller screens */
+    margin-right: 20px;
 }
 
 .footer-image {
     width: 300px;
     margin: 5px;
-    height: auto; /* Set height to auto for responsive images */
+    height: auto;
 }
 
 .footer-text {
     text-align: left;
-    display: flex; /* Keep text and form aligned */
-    flex-direction: column; /* Stack title, paragraph, and form */
-    margin-top: 70px; /* Збільшено для переміщення вниз */
-    margin-left: 50px; /* Додано для переміщення правіше */
+    display: flex;
+    flex-direction: column;
+    margin-top: 70px;
+    margin-left: 50px;
 }
 
 .consultation-title {
@@ -120,7 +120,7 @@ export default {
 footer p {
     font-family: 'Roboto';
     font-size: 18px;
-    color: #000000; /* Текст у 100% насиченості */
+    color: #000000;
     width: 500px;
     margin-bottom: 20px;
 }
@@ -133,8 +133,8 @@ form {
 form input {
     margin-bottom: 10px;
     padding: 10px;
-    background-color: #ffffff; /* фон інпуту */
-    border: 0.3px solid #4b2348; /* колір та товщина бордюру */
+    background-color: #ffffff;
+    border: 0.3px solid #4b2348;
     width: 300px;
 }
 
@@ -187,53 +187,52 @@ form input {
 
 .icon:hover {
     transform: scale(1.1);
-    color: #521448; /* Зміна кольору при наведенні */
+    color: #521448;
 }
 
-/* Media Queries for Responsive Design */
 @media (max-width: 1024px) {
     .footer-content {
-        flex-direction: column; /* Stack content vertically */
-        align-items: center; /* Center align items */
+        flex-direction: column;
+        align-items: center;
     }
     .consultation {
-        flex-direction: column; /* Stack images and text vertically */
-        align-items: center; /* Center align items */
+        flex-direction: column;
+        align-items: center;
     }
     .footer-pictures {
-        margin-right: 0; /* Remove right margin for better spacing */
+        margin-right: 0;
     }
     .footer-image {
-        width: 80%; /* Make images responsive */
-        max-width: 300px; /* Maximum width for images */
+        width: 80%;
+        max-width: 300px;
     }
 }
 
 @media (max-width: 768px) {
     .consultation-title {
-        font-size: 28px; /* Smaller title font */
+        font-size: 28px;
     }
     footer p {
-        width: 100%; /* Full width for paragraph */
+        width: 100%;
     }
     form input {
-        width: 90%; /* Responsive input width */
+        width: 90%;
     }
     .submit-button {
-        width: 100%; /* Full width button */
+        width: 100%;
     }
 }
 
 @media (max-width: 425px) {
     .consultation-title {
-        font-size: 24px; /* Even smaller title font */
+        font-size: 24px;
     }
     .submit-button {
-        padding: 8px; /* Smaller padding */
-        font-size: 14px; /* Smaller button font */
+        padding: 8px;
+        font-size: 14px;
     }
     .icon {
-        font-size: 20px; /* Smaller icons */
+        font-size: 20px;
     }
 }
 </style>

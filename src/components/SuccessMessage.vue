@@ -11,13 +11,13 @@
 export default {
     data() {
         return {
-            message: 'Товар успішно додано до кошика!', // Повідомлення, яке потрібно показати
-            isVisible: true, // Встановлюємо видимість на true
+            message: 'Товар успішно додано до кошика!',
+            isVisible: true,
         }
     },
     methods: {
         closeMessage() {
-            this.isVisible = false // Закриваємо повідомлення при натисканні на хрестик
+            this.isVisible = false
         },
     },
 }
@@ -25,28 +25,28 @@ export default {
 
 <style scoped>
 .success-message {
-    position: fixed; /* Фіксована позиція */
-    top: 20px; /* Відстань від верху */
-    left: 50%; /* Центрування по горизонталі */
-    transform: translateX(-50%); /* Центрування по горизонталі */
-    background-color: #4caf50; /* Зелений фон */
-    color: white; /* Білий текст */
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4caf50;
+    color: white;
     padding: 15px;
     border-radius: 5px;
-    z-index: 1000; /* Високий z-index, щоб бути зверху */
+    z-index: 1000;
 }
 
 .message-content {
-    display: flex; /* Використання flexbox для вирівнювання вмісту */
-    justify-content: space-between; /* Простір між текстом і кнопкою закриття */
-    align-items: center; /* Центрування по вертикалі */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .close-button {
-    background: none; /* Без фону */
-    border: none; /* Без рамки */
-    color: white; /* Білий текст */
-    font-size: 20px; /* Розмір шрифта для кнопки */
-    cursor: pointer; /* Курсор при наведенні */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
 }
 </style>

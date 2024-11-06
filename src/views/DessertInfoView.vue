@@ -26,7 +26,7 @@ export default {
     },
     data() {
         return {
-            showSuccessMessage: false, // Керує видимістю повідомлення
+            showSuccessMessage: false,
         }
     },
     computed: {
@@ -38,9 +38,9 @@ export default {
     },
     methods: {
         orderDessert() {
-            this.$store.commit('addToCart', this.dessert) // Додаємо товар до кошика
-            this.$store.dispatch('triggerSuccessMessage') // Викликаємо повідомлення
-            this.showSuccessMessage = true // Optionally show success message
+            this.$store.commit('addToCart', this.dessert)
+            this.$store.dispatch('triggerSuccessMessage')
+            this.showSuccessMessage = true
         },
     },
 }
@@ -81,7 +81,7 @@ export default {
 }
 
 .dessert-description {
-    font-size: 17px; /* Зменшуємо розмір шрифту */
+    font-size: 17px;
     font-family: 'Roboto';
     color: #4b2348;
     margin-right: 50px;
@@ -89,7 +89,7 @@ export default {
 }
 
 .dessert-ingredients {
-    font-size: 17px; /* Залишаємо цей розмір без змін */
+    font-size: 17px;
     font-family: 'Roboto';
     color: #4b2348;
     margin-right: 50px;
@@ -115,57 +115,55 @@ export default {
 }
 @media (max-width: 1024px) {
     .dessert-content {
-        flex-direction: column; /* Стовпчик на менших екранах */
-        align-items: center; /* Центрувати вміст */
-        margin-left: 0; /* Прибираємо лівий відступ */
-        margin-top: 30px; /* Зменшуємо верхній відступ */
+        flex-direction: column;
+        align-items: center;
+        margin-left: 0;
+        margin-top: 30px;
     }
 
     .dessert-image {
-        width: 100%; /* Ширина на 100% для зменшення */
-        height: auto; /* Автоматична висота */
+        width: 100%;
+        height: auto;
     }
 
     .dessert-title {
-        font-size: 30px; /* Менший розмір заголовка */
+        font-size: 30px;
     }
 
     .dessert-description,
     .dessert-ingredients {
-        margin-right: 0; /* Прибираємо правий відступ */
-        text-align: center; /* Центруємо текст */
+        margin-right: 0;
+        text-align: center;
     }
 }
 
-/* Адаптивність для екранів до 768px */
 @media (max-width: 768px) {
     .dessert-title {
-        font-size: 28px; /* Ще менший розмір заголовка */
+        font-size: 28px;
     }
 
     .dessert-price {
-        font-size: 25px; /* Зменшуємо ціну */
+        font-size: 25px;
     }
 }
 
-/* Адаптивність для екранів до 425px */
 @media (max-width: 425px) {
     .dessert-title {
-        font-size: 24px; /* Зменшений розмір заголовка */
+        font-size: 24px;
     }
 
     .dessert-price {
-        font-size: 22px; /* Зменшена ціна */
+        font-size: 22px;
     }
 
     .dessert-description,
     .dessert-ingredients {
-        font-size: 15px; /* Зменшений розмір тексту */
+        font-size: 15px;
     }
 
     .dessert-image {
-        width: 100%; /* Ширина 100% на маленьких екранах */
-        height: auto; /* Автоматична висота */
+        width: 100%;
+        height: auto;
     }
 }
 </style>

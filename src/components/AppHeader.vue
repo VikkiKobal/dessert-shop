@@ -36,8 +36,8 @@ export default {
     background-color: rgb(204, 194, 204);
     padding: 30px 0;
     width: 100%;
-    background-size: cover; /* або contain, залежно від ваших потреб */
-    background-position: center; /* Вирівнювання по центру */
+    background-size: cover;
+    background-position: center;
 }
 
 .navbar {
@@ -73,7 +73,6 @@ export default {
     transition: color 0.3s;
 }
 
-/* Псевдоелемент для анімації лінії під кнопкою */
 .nav-links a::before {
     content: '';
     position: absolute;
@@ -82,19 +81,17 @@ export default {
     width: 100%;
     height: 3px;
     background-color: rgba(47, 0, 45, 0.85);
-    transform: scaleX(0); /* Початковий стан (лінія схована) */
+    transform: scaleX(0);
     transform-origin: 0 50%;
     transition: transform 0.5s ease;
 }
 
-/* Ефект при наведенні: лінія під кнопкою розгортається */
 .nav-links a:hover::before {
-    transform: scaleX(1); /* Розгортання лінії на всю ширину */
+    transform: scaleX(1);
 }
 
-/* Зміна кольору тексту при наведенні */
 .nav-links a:hover {
-    color: rgba(47, 0, 45, 1); /* Робимо текст яскравішим при наведенні */
+    color: rgba(47, 0, 45, 1);
 }
 
 .icon {
@@ -123,19 +120,18 @@ export default {
     font-size: 16px;
 }
 
-/* Адаптивна верстка */
 @media (max-width: 1024px) {
     .icon {
-        width: 40px; /* Зменшений розмір іконки */
+        width: 40px;
         height: 35px;
     }
 
     .nav-links a {
-        font-size: 22px; /* Зменшений розмір шрифту */
+        font-size: 22px;
     }
 
     .navbar {
-        padding: 0 10px; /* Зменшуємо відступи */
+        padding: 0 10px;
     }
 }
 
@@ -154,12 +150,12 @@ export default {
     }
 
     .icon {
-        width: 30px; /* Ще менший розмір іконки */
+        width: 30px;
         height: 30px;
     }
 
     .nav-links a {
-        font-size: 20px; /* Ще зменшений розмір шрифту */
+        font-size: 20px;
     }
 }
 
