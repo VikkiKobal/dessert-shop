@@ -102,7 +102,13 @@
             <div class="recipe-grid">
                 <div class="recipe-item">
                     <a href="https://foodie-app-foodie.vercel.app/recipes/Chizkeyk-oreo--1684062324523" target="_blank">
-                        <img src="../assets/recipe1.jpg" alt="Рецепт 1" class="recipe-photo" />
+                        <div class="recipe-photo-container">
+                            <img src="../assets/recipe1.jpg" alt="Рецепт 1" class="recipe-photo" />
+                            <div class="overlay">
+                                <img src="../assets/kitchen.png" alt="Кухня" class="kitchen-icon" />
+                                <span class="overlay-text">Хочу приготувати</span>
+                            </div>
+                        </div>
                     </a>
                     <div class="recipe-info">
                         <div class="recipe-icons">
@@ -117,12 +123,19 @@
                         <h3 class="recipe-name">Холодний чизкейк "Орео"</h3>
                     </div>
                 </div>
+
                 <div class="recipe-item">
                     <a
                         href="https://foodie-app-foodie.vercel.app/recipes/Sloyki-z-vanilnim-kremom-ta-yagodami--1722597699162"
                         target="_blank"
                     >
-                        <img src="../assets/recipe2.jpg" alt="Рецепт 2" class="recipe-photo" />
+                        <div class="recipe-photo-container">
+                            <img src="../assets/recipe2.jpg" alt="Рецепт 2" class="recipe-photo" />
+                            <div class="overlay">
+                                <img src="../assets/kitchen.png" alt="Кухня" class="kitchen-icon" />
+                                <span class="overlay-text">Хочу приготувати</span>
+                            </div>
+                        </div>
                     </a>
                     <div class="recipe-info">
                         <div class="recipe-icons">
@@ -137,12 +150,19 @@
                         <h3 class="recipe-name">Слойки з ванільним кремом та ягодами</h3>
                     </div>
                 </div>
+
                 <div class="recipe-item">
                     <a
                         href="https://foodie-app-foodie.vercel.app/recipes/Bulochki-Sinnabon-1673206433425"
                         target="_blank"
                     >
-                        <img src="../assets/recipe3.jpg" alt="Рецепт 3" class="recipe-photo" />
+                        <div class="recipe-photo-container">
+                            <img src="../assets/recipe3.jpg" alt="Рецепт 3" class="recipe-photo" />
+                            <div class="overlay">
+                                <img src="../assets/kitchen.png" alt="Кухня" class="kitchen-icon" />
+                                <span class="overlay-text">Хочу приготувати</span>
+                            </div>
+                        </div>
                     </a>
                     <div class="recipe-info">
                         <div class="recipe-icons">
@@ -157,12 +177,19 @@
                         <h3 class="recipe-name">Булочки сінабон: простий рецепт приготування</h3>
                     </div>
                 </div>
+
                 <div class="recipe-item">
                     <a
                         href="https://foodie-app-foodie.vercel.app/recipes/Yagodniy-chizkeyk-1723742154845"
                         target="_blank"
                     >
-                        <img src="../assets/recipe4.jpg" alt="Рецепт 4" class="recipe-photo" />
+                        <div class="recipe-photo-container">
+                            <img src="../assets/recipe4.jpg" alt="Рецепт 4" class="recipe-photo" />
+                            <div class="overlay">
+                                <img src="../assets/kitchen.png" alt="Кухня" class="kitchen-icon" />
+                                <span class="overlay-text">Хочу приготувати</span>
+                            </div>
+                        </div>
                     </a>
                     <div class="recipe-info">
                         <div class="recipe-icons">
@@ -179,6 +206,7 @@
                 </div>
             </div>
         </div>
+
         <!-- Футер компонент -->
         <FooterComponent />
     </div>
@@ -256,6 +284,94 @@ export default {
 }
 </script>
 <style scoped>
+.recipe-container {
+    padding: 20px;
+}
+
+.recipe-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.recipe-photo-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: auto;
+}
+
+.recipe-photo {
+    width: 100%;
+    height: auto;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    flex-direction: column;
+    text-align: center;
+}
+
+.overlay-text {
+    color: white;
+    font-size: 24px;
+    font-family: 'Arial';
+    font-weight: normal;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.recipe-photo-container:hover .recipe-photo {
+    opacity: 0.7;
+}
+
+.recipe-photo-container:hover .overlay {
+    opacity: 1;
+}
+
+.recipe-info {
+    padding: 10px;
+    text-align: center;
+}
+
+.recipe-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.time-icon,
+.ingredients-icon {
+    display: flex;
+    align-items: center;
+}
+
+.kitchen-icon {
+    width: 100px; /* Збільшена іконка до 120px */
+    height: 100px;
+}
+
+.recipe-name {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
 .banner {
     display: flex;
     flex-direction: column;

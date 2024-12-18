@@ -1,6 +1,5 @@
 import { createStore } from "vuex";
-import 'firebase/database';
-import { database } from '../firebase-config';
+import { database } from '../firebase-config'; // Використовуйте цей імпорт для налаштувань Firebase
 import { collection, getDocs } from 'firebase/firestore';
 
 const store = createStore({
@@ -14,15 +13,6 @@ const store = createStore({
     mutations: {
         setSelectedCategory(state, category) {
             state.selectedCategory = category;
-        },
-        showSuccessMessage(state) {
-            state.showSuccessMessage = true
-            setTimeout(() => {
-                state.showSuccessMessage = false
-            }, 4000)
-        },
-        hideSuccessMessage(state) {
-            state.showSuccessMessage = false
         },
         addToCart(state, dessert) {
             const existingItem = state.cart.find(item => item.id === dessert.id);
@@ -48,12 +38,14 @@ const store = createStore({
             }
         },
         clearCart(state) {
-            state.cartItems = [];
+            state.cart = [];  // Виправлено тут
         },
         SET_DESSERTS(state, items) {
-            state.desserts = items;
+            // Якщо дані змінюються, оновлюємо state
+            if (JSON.stringify(state.desserts) !== JSON.stringify(items)) {
+                state.desserts = items;
+            }
         }
-
     },
     actions: {
         triggerAddToCart({ commit }, dessert) {
@@ -76,7 +68,6 @@ const store = createStore({
                 console.error("Error fetching desserts:", error);
             }
         }
-
     },
 
     getters: {
@@ -90,8 +81,6 @@ const store = createStore({
             return state.cart;
         }
     }
-
-
 });
 
 export default store;
