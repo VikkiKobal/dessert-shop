@@ -206,12 +206,10 @@
                 </div>
             </div>
         </div>
-
         <!-- Футер компонент -->
         <FooterComponent />
     </div>
 </template>
-
 <script>
 import MainButton from '../components/MainButton.vue'
 import { mapGetters } from 'vuex'
@@ -236,7 +234,6 @@ export default {
                 url: dessert.url,
                 price: dessert.price,
             }))
-
             return [
                 extractedDesserts.find((d) => d.id === 'nnPO9bG8Mz748OZf98nW').url,
                 extractedDesserts.find((d) => d.id === 'UZMKbylaTYjFNysszmY8').url,
@@ -284,94 +281,6 @@ export default {
 }
 </script>
 <style scoped>
-.recipe-container {
-    padding: 20px;
-}
-
-.recipe-title {
-    text-align: center;
-    font-size: 32px;
-    margin-bottom: 20px;
-}
-
-.recipe-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-}
-
-.recipe-photo-container {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    height: auto;
-}
-
-.recipe-photo {
-    width: 100%;
-    height: auto;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    flex-direction: column;
-    text-align: center;
-}
-
-.overlay-text {
-    color: white;
-    font-size: 24px;
-    font-family: 'Arial';
-    font-weight: normal;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.recipe-photo-container:hover .recipe-photo {
-    opacity: 0.7;
-}
-
-.recipe-photo-container:hover .overlay {
-    opacity: 1;
-}
-
-.recipe-info {
-    padding: 10px;
-    text-align: center;
-}
-
-.recipe-icons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.time-icon,
-.ingredients-icon {
-    display: flex;
-    align-items: center;
-}
-
-.kitchen-icon {
-    width: 100px; /* Збільшена іконка до 120px */
-    height: 100px;
-}
-
-.recipe-name {
-    font-size: 18px;
-    margin-top: 10px;
-}
-
 .banner {
     display: flex;
     flex-direction: column;
@@ -573,7 +482,7 @@ button .arrow {
     text-align: left;
     color: rgba(47, 0, 45, 0.85);
     padding-top: 40px;
-    padding-left: 10px;
+    padding-left: 30px;
     align-self: flex-start;
 }
 
@@ -603,7 +512,7 @@ button .arrow {
     font-size: 29px;
     color: #521448;
     text-align: left;
-    padding-left: 25px;
+    padding-left: 30px;
     padding-bottom: 25px;
     padding-top: 15px;
 }
@@ -612,12 +521,11 @@ button .arrow {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 10px;
-    padding-left: 20px;
+    gap: 9px;
 }
 
 .favorite-item {
-    width: 240px;
+    width: 245px;
     height: 340px;
     margin: 0 20px 15px;
 }
@@ -636,6 +544,71 @@ button .arrow {
 
 .recipe-container {
     width: 100%;
+}
+
+.recipe-photo-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: auto;
+}
+
+.recipe-photo-container:hover .recipe-photo {
+    opacity: 0.7;
+}
+
+.recipe-photo-container:hover .overlay {
+    opacity: 1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    flex-direction: column;
+    text-align: center;
+}
+
+.overlay-text {
+    color: white;
+    font-size: 24px;
+    font-family: 'Arial';
+    font-weight: normal;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.recipe-info {
+    padding: 10px;
+    text-align: center;
+    margin-top: 8px;
+}
+
+.recipe-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.kitchen-icon {
+    width: 100px;
+    height: 100px;
+}
+
+.recipe-name {
+    font-size: 18px;
+    font-family: 'Roboto';
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: #2f002d;
+    margin-top: 8px;
 }
 
 .recipe-title {
@@ -666,39 +639,11 @@ button .arrow {
     object-fit: cover;
 }
 
-.recipe-info {
-    margin-top: 10px;
-}
-
-.recipe-icons {
-    display: flex;
-    justify-content: flex-start;
-    margin-left: 50px;
-    gap: 50px;
-    margin-bottom: 5px;
-}
-
-.time-icon,
-.ingredients-icon {
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    margin-right: 10px;
-}
-
 .icon {
     width: 30px;
     height: 30px;
     margin-right: 5px;
     vertical-align: middle;
-}
-
-.recipe-name {
-    font-size: 18px;
-    font-family: 'Roboto';
-    font-weight: 300;
-    letter-spacing: 1px;
-    color: #2f002d;
 }
 
 @media (max-width: 1024px) {
